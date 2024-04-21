@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const { Client, Events, GatewayIntentBits, managerToFetchingStrategyOptions, ActivityType, EmbedBuilder} = require('discord.js'); //permissions
 const Cron = require("croner");
-const moment = require("moment");
 const embeds = require('./help');
 
 let answers = ['!help', 'Afking Lost Tower 7', 'failed wings attempt #23034']

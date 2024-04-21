@@ -2,7 +2,6 @@
   "dependencies": {
     "croner": "^8.0.2",
     "discord.js": "^14.12.1",
-    "moment": "^2.30.1",
     "nodemon": "^3.1.0"
   },
   "name": "muxonline",
@@ -11,8 +10,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon main.js",
-    "build": "nexe main.js"
+    "start": "nodemon main.js"
   },
   "author": "uDreams",
   "license": "ISC"
