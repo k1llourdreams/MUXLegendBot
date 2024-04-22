@@ -3,7 +3,7 @@ const { Client, Events, GatewayIntentBits, managerToFetchingStrategyOptions, Act
 const Cron = require("croner");
 const embeds = require('./help');
 
-let answers = ['!help', 'Afking Lost Tower 7', 'failed wings attempt #23034']
+let answers = ['!help', 'Afking Lost Tower 7', 'failed wings attempt #23034', 'escooby dooby doo']
 
 
 const client = new Discord.Client({
@@ -25,8 +25,8 @@ function schedule(channel) {
     const redDragon = Cron("10 1-23/2 * * *", {name: "red dragon"}, function () {   //  Every 2 hours, starting from 1:10AM
         channel.send(`Red Dragon has appeared.`)
     });
-    const goldenDragon = Cron("12 1-23/2 * * *", {name: "golden dragon"}, function () {    // Every 2 hours, starting from 1:12AM
-        channel.send(`Golden Dragons have appeared.`)
+    const goldenInvasion = Cron("12 1-23/2 * * *", {name: "golden invasion"}, function () {    // Every 2 hours, starting from 1:12AM
+        channel.send(`Golden Invasion has begun.`)
     });
     const dungeonsUndine = Cron("50 0-23/4 * * *", {name: "dungeons undine"}, function () { // Every 4 hours, starting from 12:50AM
         channel.send(`Dungeon's Undine has appeared.`)
@@ -34,7 +34,7 @@ function schedule(channel) {
     const medusa = Cron("30 17 * * *", {name: "medusa"}, function () {     // At 5:30PM every day
         channel.send(`Medusa has appeared`)
     });
-    const lorenDeep = Cron("0 18 * * *", {name: "loren deep"}, function () { // At 6PM every day
+    const lorenDeep = Cron("0 17 * * *", {name: "loren deep"}, function () { // At 6PM every day
         channel.send(`The Loren Deep Event has begun.`)
     });
     const strangeRabbits = Cron("15 18 * * *", {name: "strange rabbits"}, function () { //  At 6:15PM every day
@@ -74,8 +74,8 @@ function schedule(channel) {
     const redDragon5 = Cron("5 1-23/2 * * *", {name: "red dragon5"}, function () {   //  Every 2 hours, starting from 1:10AM
         channel.send(`Red Dragon is spawning in 5 minutes.`)
     });
-    const goldenDragon5 = Cron("7 1-23/2 * * *", {name: "golden dragon5"}, function () {    // Every 2 hours, starting from 1:12AM
-        channel.send(`Golden Dragons are spawning in 5 minutes.`)
+    const goldenInvasion5 = Cron("7 1-23/2 * * *", {name: "golden invasion5"}, function () {    // Every 2 hours, starting from 1:12AM
+        channel.send(`Golden Invasion is starting in 5 minutes.`)
     });
     const dungeonsUndine15 = Cron("35 0-23/4 * * *", {name: "dungeons undine15"}, function () { // Every 4 hours, starting from 12:50AM
         channel.send(`Dungeon's Undine is spawning in 15 minutes.`)
@@ -89,7 +89,7 @@ function schedule(channel) {
     const medusa5 = Cron("25 17 * * *", {name: "medusa5"}, function () {     // At 5:30PM every day
         channel.send(`Medusa is spawning in 5 minutes`)
     });
-    const lorenDeep5 = Cron("55 17 * * *", {name: "loren deep5"}, function () { // At 6PM every day
+    const lorenDeep5 = Cron("55 16 * * *", {name: "loren deep5"}, function () { // At 6PM every day
         channel.send(`The Loren Deep Event is starting in 5 minutes.`)
     });
     const strangeRabbits10 = Cron("5 18 * * *", {name: "strange rabbits10"}, function () { //  At 6:15PM every day
@@ -147,7 +147,7 @@ function schedule(channel) {
         }
 
         if (command === "next") {
-            let findJob = Cron.scheduledJobs.find(j => j.name === `${args.join(" ")}`)
+            let findJob = Cron.scheduledJobs.find(j => j.name === `${args.join(" ").toLowerCase()}`)
 
             if (!args[0]) {
                 await message.channel.send("Please provide an event after '!next'.");
@@ -203,7 +203,7 @@ function schedule(channel) {
                     name: `MUXOnline`,
                     iconURL: "https://cdn.discordapp.com/attachments/1230562870480076901/1230859690435416144/images.png?ex=6634da6a&is=6622656a&hm=df50b602cd9769e5d4e9735c7d7865f5d6903cc64bcc2ed9fbf6f1de292fdd88&"
                 })
-                .setDescription(`Blood Castle\nDevil Square\nChaos Castle\nRed Dragon\nGolden Dragon\nDungeons Undine\nMedusa\nLoren Deep\nStrange Rabbits\nWhite Rooster\nBloody Orc\nAsteroth\nBoss Battle Together\nCrywolf\nArca War\nCastle Siege`)
+                .setDescription(`Blood Castle\nDevil Square\nChaos Castle\nRed Dragon\nGolden Invasion\nDungeons Undine\nMedusa\nLoren Deep\nStrange Rabbits\nWhite Rooster\nBloody Orc\nAsteroth\nBoss Battle Together\nCrywolf\nArca War\nCastle Siege`)
                 .setTimestamp()
 
             message.channel.send({ embeds: [events] });
