@@ -119,7 +119,7 @@ function schedule(channel) {
     const bossBattleTogether5 = Cron("10 12,18,22  * * *", {name: "boss battle together5"}, function () { //  At 12:10PM, 6:10PM, and 10:10PM every day
         channel.send(`Boss Battle Together is starting in 5 minutes.`)
     });
-    const bossBattleTogether10 = Cron("5 12,18,22  * * *", {name: "boss battle together5"}, function () { //  At 12:05PM, 6:05PM, and 10:05PM every day
+    const bossBattleTogether10 = Cron("5 12,18,22  * * *", {name: "boss battle together10"}, function () { //  At 12:05PM, 6:05PM, and 10:05PM every day
         channel.send(`Boss Battle Together is starting in 10 minutes.`)
     });
 
