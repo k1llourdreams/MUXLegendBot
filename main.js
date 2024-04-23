@@ -58,7 +58,7 @@ function schedule(channel) {
     const castleSiege = Cron("30 18 * * 7", {name: "castle siege"}, function () { //  At 6:30PM every Sunday
         channel.send(`Castle Siege has begun.`)
     });
-    const bossBattleTogether = Cron("15 18 * * *", {name: "boss battle together"}, function () { //  At 6:15PM every day
+    const bossBattleTogether = Cron("15 12,18,22 * * *", {name: "boss battle together"}, function () { //  At 12:15PM, 6:15PM, and 10:15PM every day
         channel.send(`Boss Battle Together has begun.`)
     });
 
@@ -116,8 +116,11 @@ function schedule(channel) {
     const castleSiege5 = Cron("25 18 * * 7", {name: "castle siege5"}, function () { //  At 6:30PM every Sunday
         channel.send(`Castle Siege is starting in 5 minutes.`)
     });
-    const bossBattleTogether5 = Cron("10 18 * * *", {name: "boss battle together5"}, function () { //  At 6:15PM every day
+    const bossBattleTogether5 = Cron("10 12,18,22  * * *", {name: "boss battle together5"}, function () { //  At 12:10PM, 6:10PM, and 10:10PM every day
         channel.send(`Boss Battle Together is starting in 5 minutes.`)
+    });
+    const bossBattleTogether10 = Cron("5 12,18,22  * * *", {name: "boss battle together5"}, function () { //  At 12:05PM, 6:05PM, and 10:05PM every day
+        channel.send(`Boss Battle Together is starting in 10 minutes.`)
     });
 
 
@@ -175,7 +178,7 @@ function schedule(channel) {
             let tempJob = null;
             let minMsToNext = Infinity; // Initialize to a large value
 
-            for (let jobName = 0; jobName <= 15; jobName++) {
+            for (let jobName = 0; jobName <= 15; jobName++) {   //change this if you add more events
                 let job = Cron.scheduledJobs[jobName];
                 let msToNext = job.msToNext();
 
