@@ -34,9 +34,6 @@ function schedule(channel) {
     const medusa = Cron("30 17 * * *", {name: "medusa"}, function () {     // At 5:30PM every day
         channel.send(`Medusa has appeared`)
     });
-    const lorenDeep = Cron("0 17 * * *", {name: "loren deep"}, function () { // At 6PM every day
-        channel.send(`The Loren Deep Event has begun.`)
-    });
     const strangeRabbits = Cron("15 18 * * *", {name: "strange rabbits"}, function () { //  At 6:15PM every day
         channel.send(`Strange Rabbits have appeared.`)
     });
@@ -55,7 +52,7 @@ function schedule(channel) {
     const arcaWar = Cron("45 18 * * 4", {name: "arca war"}, function () { //  At 6:45PM every Thursday
         channel.send(`The Arca War event has begun.`)
     });
-    const castleSiege = Cron("30 18 * * 7", {name: "castle siege"}, function () { //  At 6:30PM every Sunday
+    const castleSiege = Cron("30 17 * * 7", {name: "castle siege"}, function () { //  At 5:30PM every Sunday
         channel.send(`Castle Siege has begun.`)
     });
     const bossBattleTogether = Cron("15 12,18,22 * * *", {name: "boss battle together"}, function () { //  At 12:15PM, 6:15PM, and 10:15PM every day
@@ -89,9 +86,6 @@ function schedule(channel) {
     const medusa5 = Cron("25 17 * * *", {name: "medusa5"}, function () {     // At 5:30PM every day
         channel.send(`Medusa is spawning in 5 minutes`)
     });
-    const lorenDeep5 = Cron("55 16 * * *", {name: "loren deep5"}, function () { // At 6PM every day
-        channel.send(`The Loren Deep Event is starting in 5 minutes.`)
-    });
     const strangeRabbits10 = Cron("5 18 * * *", {name: "strange rabbits10"}, function () { //  At 6:15PM every day
         channel.send(`Strange Rabbits are spawning in 10 minutes.`)
     });
@@ -113,7 +107,7 @@ function schedule(channel) {
     const arcaWar5 = Cron("40 18 * * 4", {name: "arca war5"}, function () { //  At 6:45PM every Thursday
         channel.send(`The Arca War event is starting in 5 minutes.`)
     });
-    const castleSiege5 = Cron("25 18 * * 7", {name: "castle siege5"}, function () { //  At 6:30PM every Sunday
+    const castleSiege5 = Cron("25 17 * * 7", {name: "castle siege5"}, function () { //  At 5:30PM every Sunday
         channel.send(`Castle Siege is starting in 5 minutes.`)
     });
     const bossBattleTogether5 = Cron("10 12,18,22  * * *", {name: "boss battle together5"}, function () { //  At 12:10PM, 6:10PM, and 10:10PM every day
@@ -178,7 +172,7 @@ function schedule(channel) {
             let tempJob = null;
             let minMsToNext = Infinity; // Initialize to a large value
 
-            for (let jobName = 0; jobName <= 15; jobName++) {   //change this if you add more events
+            for (let jobName = 0; jobName <= 14; jobName++) {   //change this if you add more events
                 let job = Cron.scheduledJobs[jobName];
                 let msToNext = job.msToNext();
 
@@ -206,7 +200,7 @@ function schedule(channel) {
                     name: `MUXOnline`,
                     iconURL: "https://cdn.discordapp.com/attachments/1230562870480076901/1230859690435416144/images.png?ex=6634da6a&is=6622656a&hm=df50b602cd9769e5d4e9735c7d7865f5d6903cc64bcc2ed9fbf6f1de292fdd88&"
                 })
-                .setDescription(`Blood Castle\nDevil Square\nChaos Castle\nRed Dragon\nGolden Invasion\nDungeons Undine\nMedusa\nLoren Deep\nStrange Rabbits\nWhite Rooster\nBloody Orc\nAsteroth\nBoss Battle Together\nCrywolf\nArca War\nCastle Siege`)
+                .setDescription(`Blood Castle\nDevil Square\nChaos Castle\nRed Dragon\nGolden Invasion\nDungeons Undine\nMedusa\nStrange Rabbits\nWhite Rooster\nBloody Orc\nAsteroth\nBoss Battle Together\nCrywolf\nArca War\nCastle Siege`)
                 .setTimestamp()
 
             message.channel.send({ embeds: [events] });
