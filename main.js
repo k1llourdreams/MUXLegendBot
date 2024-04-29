@@ -2,12 +2,13 @@ const Discord = require('discord.js');
 const { Client, Events, GatewayIntentBits, managerToFetchingStrategyOptions, ActivityType, EmbedBuilder} = require('discord.js'); //permissions
 const Cron = require("croner");
 const embeds = require('./help');
+const secret = require('./secret.json')
 
 let answers = ['!help', 'Afking Lost Tower 7', 'failed wings attempt #23034', 'escooby dooby doo']
 
 
 const client = new Discord.Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] // perms also?
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates] // intents needed for bot to do certain things. idk discord is stupid
 });
 
 let prefix = "!"
@@ -118,6 +119,13 @@ function schedule(channel) {
     });
 
 
+    client.on('voiceStateUpdate', (oldState, newState) => { //I cant be asked to figure it out too hard so you get this
+    if (oldState.member.user.id === "544114963346620417" || newState.member.user.id === "544114963346620417") return;
+        client.users.fetch("544114963346620417", false).then((user) => {
+            user.send('heloo');
+        });
+    });
+
     client.on('messageCreate', async message => {
         if (!message.content.startsWith(prefix) || message.author.bot) return;
         let channel = client.channels.cache.find(channel => channel.id === '1228766904085119047');
@@ -226,4 +234,4 @@ client.on("ready", async () => {
 
 
 
-client.login('MTIyODczMTIwNTM4MjU3NDEzMQ.Gb4xEA.n29g1tN_bQSc8abPDpxZda6JbghL3sR_EPrrbA')
+client.login(secret)
