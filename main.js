@@ -4,6 +4,7 @@ const Cron = require("croner");
 const embeds = require('./help');
 const secret = require('./secret.json')
 
+let prefix = "!"
 let answers = ['!help', 'Afking Lost Tower 7', 'failed wings attempt #23034', 'escooby dooby doo']
 
 
@@ -11,7 +12,6 @@ const client = new Discord.Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates] // intents needed for bot to do certain things. idk discord is stupid
 });
 
-let prefix = "!"
 
 function schedule(channel) {
     const bloodCastle = Cron("30 * * * *", {name: "blood castle"}, function () {      // At 30 minutes past the hour
@@ -44,8 +44,11 @@ function schedule(channel) {
     const bloodyOrc = Cron("35 18 * * *", {name: "bloody orc"}, function () { //  At 6:30PM every day
         channel.send(`The Bloody Orc has appeared. Most likely locations are\n125,75\n180,110\n155,55`)
     });
-    const asteroth = Cron("45 18 * * 1,2,5-7", {name: "asteroth"}, function () { //  At 6:45PM every day
-        channel.send(`The Asteroth Guardian event has begun.`)
+    const acheron = Cron("15 19 * * 1-3,5,6", {name: "acheron"}, function () { //  At 7:15PM every day except Thu&Sun
+        channel.send(`The Protector of Acheron event has begun.`)
+    });
+    const asteroth = Cron("30 19 * * *", {name: "asteroth"}, function () { //  At 7:30PM every day
+        channel.send(`Asteroth has appeared.`)
     });
     const crywolf = Cron("45 18 * * 3", {name: "crywolf"}, function () { //  At 6:45PM every Wednesday
         channel.send(`Crywolf event has begun.`)
@@ -99,8 +102,11 @@ function schedule(channel) {
     const bloodyOrc5 = Cron("30 18 * * *", {name: "bloody orc5"}, function () { //  At 6:30PM every day
         channel.send(`The Bloody Orc is spawning in 5 minutes. Most likely locations are\n125,75\n180,110\n155,55`)
     });
-    const asteroth5 = Cron("40 18 * * 1,2,5-7", {name: "asteroth5"}, function () { //  At 6:45PM every day
-        channel.send(`The Asteroth Guardian event is starting in 5 minutes.`)
+    const acheron5 = Cron("10 19 * * 1-3,5,6", {name: "acheron5"}, function () { //  At 7:10PM every day except Thu&Sun
+        channel.send(`The Protector of Acheron event is starting in 5 minutes.`)
+    });
+    const asteroth5 = Cron("30 19 * * *", {name: "asteroth5"}, function () { //  At 7:25PM every day
+        channel.send(`Asteroth is spawning in 5 minutes.`)
     });
     const crywolf5 = Cron("40 18 * * 3", {name: "crywolf5"}, function () { //  At 6:45PM every Wednesday
         channel.send(`Crywolf event is starting in 5 minutes.`)
@@ -119,6 +125,7 @@ function schedule(channel) {
     });
 
 
+
     client.on('voiceStateUpdate', (oldState, newState) => { //I cant be asked to figure it out too hard so you get this
     if (oldState.member.user.id === "544114963346620417" || newState.member.user.id === "544114963346620417") return;
         client.users.fetch("544114963346620417", false).then((user) => {
@@ -126,12 +133,15 @@ function schedule(channel) {
         });
     });
 
+
+
     client.on('messageCreate', async message => {
         if (!message.content.startsWith(prefix) || message.author.bot) return;
         let channel = client.channels.cache.find(channel => channel.id === '1228766904085119047');
 
         const args = message.content.slice(prefix.length).trim().split(/ +/)
         const command = args.shift().toLowerCase();
+
 
 
         if (command === "help") {
@@ -150,6 +160,7 @@ function schedule(channel) {
                 return error
             }
         }
+
 
         if (command === "next") {
             let findJob = Cron.scheduledJobs.find(j => j.name === `${args.join(" ").toLowerCase()}`)
@@ -176,11 +187,12 @@ function schedule(channel) {
             }
         }
 
+
         if (command === "soon") {
             let tempJob = null;
             let minMsToNext = Infinity; // Initialize to a large value
 
-            for (let jobName = 0; jobName <= 14; jobName++) {   //change this if you add more events
+            for (let jobName = 0; jobName <= 15; jobName++) {   //change this if you add more events
                 let job = Cron.scheduledJobs[jobName];
                 let msToNext = job.msToNext();
 
@@ -200,6 +212,7 @@ function schedule(channel) {
             await message.channel.send(`The next event is in ${hours} hours and ${minutes} minutes`);
         }
 
+
         if (command === "events") {
             const events = new EmbedBuilder()
                 .setColor("#6584F6")
@@ -215,6 +228,7 @@ function schedule(channel) {
         }
     })
 }
+
 
 
 client.on("ready", async () => {
