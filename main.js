@@ -105,7 +105,7 @@ function schedule(channel) {
     const acheron5 = Cron("10 19 * * 1-3,5,6", {name: "acheron5"}, function () { //  At 7:10PM every day except Thu&Sun
         channel.send(`The Protector of Acheron event is starting in 5 minutes.`)
     });
-    const asteroth5 = Cron("30 19 * * *", {name: "asteroth5"}, function () { //  At 7:25PM every day
+    const asteroth5 = Cron("25 19 * * *", {name: "asteroth5"}, function () { //  At 7:25PM every day
         channel.send(`Asteroth is spawning in 5 minutes.`)
     });
     const crywolf5 = Cron("40 18 * * 3", {name: "crywolf5"}, function () { //  At 6:45PM every Wednesday
