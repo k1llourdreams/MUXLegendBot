@@ -1,0 +1,171 @@
+{
+  "Gold Rabbit": {
+    "Location": "Lorencia (15), Noria (15), Devias (20)",
+    "Spawn": "15 minutes",
+    "Drop": "Jewel of Bless/Soul/Chaos.\nLower Chance: Jewel of Life/Creation, +Chaos Soul"
+  },
+  "Fire Flame Ghost": {
+    "Location": "Lorencia (3), Noria (3), Devias (3), Legends Arena (3)",
+    "Spawn": "1 hour",
+    "Drop": "Card Deck +Chaos Soul"
+  },
+  "Genocider Warrior": {
+    "Location": "Legends Arena (2)",
+    "Spawn": "5 minutes",
+    "Drop": "Evomon Summoning Scroll +Chaos Soul"
+  },
+  "Zaikan": {
+    "Location": "Tarkan, Lorencia, Loren Deep Event (on start, 100%, after 5 minutes, 75%, after that, 50%)",
+    "Spawn": "~6 hours",
+    "Drop": "Loch's Feather or Crest of Monarch"
+  },
+  "Soldier": {
+    "Location": "Dungeon (2), Legends Arena",
+    "Spawn": "30 minutes",
+    "Drop": "Red Chocolate Box / Box of Luck / Blue Chocolate Box +Chaos Soul"
+  },
+  "Bali": {
+    "Location": "Dungeon (2), Legends Arena",
+    "Spawn": "60 minutes",
+    "Drop": "Red Chocolate Box / Box of Luck / Blue Chocolate Box +Chaos Soul"
+  },
+  "Metal Balrog": {
+    "Location": "Dungeon (4)",
+    "Spawn": "20 minutes",
+    "Drop": "Ancient Set Items Grade D +Chaos Soul"
+  },
+  "Axl Hero": {
+    "Location": "Dungeon (2)",
+    "Spawn": "60 minutes",
+    "Drop": "Ancient Set Items Grade C +Chaos Soul"
+  },
+  "Bloody Witch Queen": {
+    "Location": "Aida (Mostly in Aida 2)",
+    "Spawn": "5 minutes",
+    "Drop": "Archangel Weapons for All Classes"
+  },
+  "Elite Scorched Wizard": {
+    "Location": "Scorched Canyon",
+    "Spawn": "~1 hour",
+    "Drop": "Guardian Enhance Stone",
+    "SpecialDrop": "~5% Elite Guardian Enhance Stone & ~1% Seal of Ghost Horse"
+  },
+  "Elite Great Drakan": {
+    "Location": "Red Smoke Icarus",
+    "Spawn": "~3 hours",
+    "Drop": "Guardian Enhance Stone",
+    "SpecialDrop": "~20% Elite Guardian Enhance Stone, Talisman of Luck ~15% & ~1% Seal of Ice Dragon"
+  },
+  "Dark Mammoth": {
+    "Location": "Rakleon (4)",
+    "Spawn": "1 hour",
+    "Drop": "Socket Item / Chaos Soul"
+  },
+  "RUUD Snakes": {
+    "Location": "Vulcanus (6 for Each Type [Tiny, Ordinary, Fat, Huge])",
+    "Spawn": "30, 60, 120(2h) or 240(4h) minutes",
+    "Drop": "100, 200, 400 Or 1000 RUUD"
+  },
+  "Bloody Orc": {
+    "Location": "Vulcanus (3) (125,75\n180,110\n155,55)",
+    "Spawn": "18:35",
+    "Drop": "5000 RUUD"
+  },
+  "Nightmare": {
+    "Location": "Kanturu Relics",
+    "Spawn": "24 hours",
+    "Drop": "Green Chaos Box"
+  },
+  "Undine": {
+    "Location": "Dungeon",
+    "Spawn": "6 hours",
+    "Drop": "Green Chaos Box"
+  },
+  "Normus": {
+    "Location": "Acheron: Debenter",
+    "Spawn": "~1.5 hours",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos Soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  "Muff": {
+    "Location": "Acheron: Debenter",
+    "Spawn": "~1.5 hours",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos Soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  "Sellihoden": {
+    "Location": "Acheron: Debenter",
+    "Spawn": "~1.5 hours",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos Soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  "Silla": {
+    "Location": "Acheron: Debenter",
+    "Spawn": "~1.5 hours",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  "Ukanva": {
+    "Location": "Acheron: Debenter",
+    "Spawn": "~1.5 hours",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  "Lord Sylvester": {
+    "Location": "Acheron: Urk Mountain",
+    "Spawn": "12 hours",
+    "Drop": "Pentagram Tier 3: Kundun's Madness Blade, Empire Guardians Scroll, Ancient Icarus Scroll\nPentagram Tier 4: Arca's Prophecy, Antonia's Sword, Kundun Seal's Scroll\nPentagram Tier 5: Norrwen's Bloodstring Lyra, Runedil's Goldentune Harp, Lemuria's Orb (5%)\nErrtels +5 - +7"
+  },
+  "Core Magriffy": {
+    "Location": "Archeron: Nars",
+    "Spawn": "20 hours",
+    "Drop": "Pentagram Tier 3: Kundun's Madness Blade, Empire Guardians Scroll, Ancient Icarus Scroll\nPentagram Tier 4: Arca's Prophecy, Antonia's Sword, Kundun Seal's Scroll\nPentagram Tier 5: Norrwen's Bloodstring Lyra, Runedil's Goldentune Harp, Lemuria's Orb (20%)\nErrtels +7 - +8 (Chance of 2 items & Rare chance of 3 items)"
+  },
+  "Selupan": {
+    "Location": "Raklion",
+    "Spawn": "24 hours",
+    "Drop": "Socket Items Box / Purple Box"
+  },
+  "Medusa": {
+    "Location": "Swamp of Calmness",
+    "Spawn": "17:30",
+    "Drop": "Excellent Rings & Pendants (Chance of 2 items & Rare chance of 3 items)"
+  },
+  "Lord Ferea": {
+    "Location": "Ferea",
+    "Spawn": "Unknown spawn",
+    "Drop": "Rage Earrings"
+  },
+  "Erohim": {
+    "Location": "Land of Trial, Legends Arena",
+    "Spawn": "13 hours",
+    "Drop": "Purple Chaos Box"
+  },
+  "Lord of Kundun": {
+    "Location": "Kalima 7, Dungeon, Land of Trial, VIP Arena",
+    "Spawn": "13 hours",
+    "Drop": "Red Chaos Box"
+  },
+  "Nix": {
+    "Location": "Nixie's Lake",
+    "Spawn": "13 hours",
+    "Drop": "Protection Ring: Critical Damage Resistance +3%\nProtector Protection Ring: Excellent Damage Resistance +3%\nRing of Block: Stun Chance Resistance +1%\nRing of Ultimatum: Double Damage Resistance +3%"
+  },
+  "Elite Phoenix of Darkness": {
+    "Location": "Red Smoke Icarus",
+    "Spawn": "00:00, 06:00, 12:00, 18:00 (Can spawn 0-5 bosses at once)",
+    "Drop": "Green/Red/Purple Chaos Box"
+  },
+  "God of Darkness": {
+    "Location": "Swamp of Darkness",
+    "Spawn": "8-12 hours",
+    "Drop": "Purple Chaos Box",
+    "SpecialDrop": "Garuda Flame"
+  },
+  "Great Rooster": {
+    "Location": "Elbeland",
+    "Spawn": "18:30",
+    "Drop": "Excellent Dark Angel Weapon or 1000-15000 RUUD"
+  },
+  "Asteroth": {
+    "Location": "Legends Arena",
+    "Spawn": "19:30",
+    "Drop": "Purple Chaos Box",
+    "SpecialDrop": "MUX Legend Weapon Box (Lightbringer, Staff of Darkness, Storm Breaker, Royal Scepter, Cursed Stick / Cursed Book, Fury Claw, Justicar’s Lance, Crepuscular Mace, Crystal Short Sword, Magic Flintflock, Rebellion Orb, Night's Edge) +Chaos Soul"
+  }
+}

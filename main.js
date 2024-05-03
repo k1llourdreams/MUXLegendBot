@@ -1,7 +1,15 @@
 const Discord = require('discord.js');
-const { Client, Events, GatewayIntentBits, managerToFetchingStrategyOptions, ActivityType, EmbedBuilder} = require('discord.js'); //permissions
+const {
+    Client,
+    Events,
+    GatewayIntentBits,
+    managerToFetchingStrategyOptions,
+    ActivityType,
+    EmbedBuilder
+} = require('discord.js'); //permissions
 const Cron = require("croner");
 const embeds = require('./help');
+const info = require("./info.json")
 const secret = require('./secret.json')
 
 let prefix = "!"
@@ -125,14 +133,12 @@ function schedule(channel) {
     });
 
 
-
     client.on('voiceStateUpdate', (oldState, newState) => { //I cant be asked to figure it out too hard so you get this
-    if (oldState.member.user.id === "544114963346620417" || newState.member.user.id === "544114963346620417") return;
+        if (oldState.member.user.id === "544114963346620417" || newState.member.user.id === "544114963346620417") return;
         client.users.fetch("544114963346620417", false).then((user) => {
             user.send('heloo');
         });
     });
-
 
 
     client.on('messageCreate', async message => {
@@ -143,20 +149,18 @@ function schedule(channel) {
         const command = args.shift().toLowerCase();
 
 
-
         if (command === "help") {
             try {
-                if (!args[0]) {                                     // if no command is given, send help embed
+                if (!args[0]) {                                         // if no command is given, send help embed
                     await message.channel.send(`You didnt enter any arguments.`)
                     await message.channel.send({embeds: [embeds.commandEmbed(command)]})
-                } else if (args[0] === "commands") {                 //  if the argument is "commands", send every command embed
-                    for (let i = 0; i <= 3; i++) {
+                } else if (args[0] === "commands") {                    //  if the argument is "commands", send every command embed
+                    for (let i = 0; i <= 4; i++)                        // change if more commands are added
                         await message.channel.send({embeds: [embeds.returnEmbeds()[i]]})
-                    }
                 } else {                               //if command is given, send command embed
                     await message.channel.send({embeds: [embeds.commandEmbed(args[0])]})
                 }
-            } catch (error)  {
+            } catch (error) {
                 return error
             }
         }
@@ -209,7 +213,7 @@ function schedule(channel) {
             } else if (minutes === 0) {
                 await message.channel.send(`The next event is in a few seconds`);
             } else
-            await message.channel.send(`The next event is in ${hours} hours and ${minutes} minutes`);
+                await message.channel.send(`The next event is in ${hours} hours and ${minutes} minutes`);
         }
 
 
@@ -224,11 +228,28 @@ function schedule(channel) {
                 .setDescription(`Blood Castle\nDevil Square\nChaos Castle\nRed Dragon\nGolden Invasion\nDungeons Undine\nMedusa\nStrange Rabbits\nWhite Rooster\nBloody Orc\nAsteroth\nBoss Battle Together\nCrywolf\nArca War\nCastle Siege`)
                 .setTimestamp()
 
-            message.channel.send({ embeds: [events] });
+            message.channel.send({embeds: [events]});
         }
+
+
+        if (command === "info") {
+            const commandName = args.join(" ").replace(/\b\w/g, l => l.toUpperCase());
+            try {
+                if (!args[0]) {                                     // if no arg is given, send help embed
+                    await message.channel.send(`You didnt enter any arguments.`)
+                    await message.channel.send({embeds: [embeds.commandEmbed(command)]})
+                } else if (args[0] === "list") {                 //  if the argument is "list", send an embed list of every mob
+                    await message.channel.send({embeds: [embeds.monsterEmbed()]})
+                } else {                               //if arg is given, send embed of the monsters info
+                    await message.channel.send({embeds: [embeds.getInfo(commandName)]})
+                }
+            } catch (error) {
+                return console.log(error)
+            }
+        }
+
     })
 }
-
 
 
 client.on("ready", async () => {
@@ -239,13 +260,9 @@ client.on("ready", async () => {
     setInterval(async () => {
         let randomAnswers = answers[Math.floor(Math.random() * answers.length)]
         client.user.setActivity({name: randomAnswers, type: 0})
-    },  30 * 1000)
+    }, 30 * 1000)
 
 });
-
-
-
-
 
 
 client.login(secret)
