@@ -1,7 +1,7 @@
 # MUXLegendBot
 Discord Bot I created for my brothers and I used for announcing events happening in the game MUXLegend.
 
-Uses the libraries discord.js and corner.
+Uses the libraries discord.js and croner.
 
 
 
