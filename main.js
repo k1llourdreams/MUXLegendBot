@@ -8,7 +8,7 @@ const {
     EmbedBuilder
 } = require('discord.js'); //permissions
 const Cron = require("croner");
-const embeds = require('./help');
+const embeds = require('./help.js');
 const info = require("./info.json")
 const secret = require('./secret.json')
 
@@ -23,13 +23,13 @@ const client = new Discord.Client({
 
 function schedule(channel) {
     const bloodCastle = Cron("30 * * * *", {name: "blood castle"}, function () {      // At 30 minutes past the hour
-        channel.send(`Blood Castle has begun.`)
+        // channel.send(`Blood Castle has begun.`)
     });
     const devilSquare = Cron("0 0-23/2 * * *", {name: "devil square"}, function () { // Every 2 hours, starting from 12AM
-        channel.send(`Devil Square has begun.`)
+        // channel.send(`Devil Square has begun.`)
     });
     const chaosCastle = Cron("0 1-23/2 * * *", {name: "chaos castle"}, function () { // Every 2 hours, starting from 1AM
-        channel.send(`Chaos Castle has begun.`)
+        // channel.send(`Chaos Castle has begun.`)
     });
     const redDragon = Cron("10 1-23/2 * * *", {name: "red dragon"}, function () {   //  Every 2 hours, starting from 1:10AM
         channel.send(`Red Dragon has appeared.`)
@@ -49,7 +49,7 @@ function schedule(channel) {
     const whiteRooster = Cron("30 18 * * *", {name: "white rooster"}, function () { //  At 6:30PM every day
         channel.send(`The White Rooster has appeared.`)
     });
-    const bloodyOrc = Cron("35 18 * * *", {name: "bloody orc"}, function () { //  At 6:30PM every day
+    const bloodyOrc = Cron("35 18 * * *", {name: "bloody orc"}, function () { //  At 6:35PM every day
         channel.send(`The Bloody Orc has appeared. Most likely locations are\n125,75\n180,110\n155,55`)
     });
     const acheron = Cron("15 19 * * 1-3,5,6", {name: "acheron"}, function () { //  At 7:15PM every day except Thu&Sun
@@ -133,7 +133,7 @@ function schedule(channel) {
     });
 
 
-    client.on('voiceStateUpdate', (oldState, newState) => { //I cant be asked to figure it out too hard so you get this
+    client.on('voiceStateUpdate', (oldState, newState) => { //  I cant be asked to figure it out, too hard, so you get this
         if (oldState.member.user.id === "544114963346620417" || newState.member.user.id === "544114963346620417") return;
         client.users.fetch("544114963346620417", false).then((user) => {
             user.send('heloo');
@@ -233,7 +233,7 @@ function schedule(channel) {
 
 
         if (command === "info") {
-            const commandName = args.join(" ").replace(/\b\w/g, l => l.toUpperCase());
+            const commandName = args.join(" ").toLowerCase()
             try {
                 if (!args[0]) {                                     // if no arg is given, send help embed
                     await message.channel.send(`You didnt enter any arguments.`)
@@ -241,9 +241,15 @@ function schedule(channel) {
                 } else if (args[0] === "list") {                 //  if the argument is "list", send an embed list of every mob
                     await message.channel.send({embeds: [embeds.monsterEmbed()]})
                 } else {                               //if arg is given, send embed of the monsters info
-                    await message.channel.send({embeds: [embeds.getInfo(commandName)]})
+                    let monster = Object.keys(info).find(monsterName => monsterName.toLowerCase() === commandName); //  case-insensitive matching to avoid errors occurring with words like "of" which are lowercase and do not match with sentence case format.
+                    if (monster) {
+                        await message.channel.send({embeds: [embeds.getInfo(monster)]});
+                    } else {
+                        await message.channel.send(`Mob not found in the database.`);
+                    }
                 }
             } catch (error) {
+                await message.channel.send(`Mob is not in the database.`)
                 return console.log(error)
             }
         }
