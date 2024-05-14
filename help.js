@@ -115,7 +115,7 @@ function monsterEmbed() {
     for (let i of Object.keys(info)) {
         embedMessages += i + "\n"
     }
-    let msg = new EmbedBuilder()
+    return new EmbedBuilder()
         .setColor('#6584F6')
         .setTitle(`List of All Special Monsters and Bosses`)
         .setAuthor({
@@ -123,8 +123,7 @@ function monsterEmbed() {
             iconURL: "https://cdn.discordapp.com/attachments/1230562870480076901/1230859690435416144/images.png?ex=6634da6a&is=6622656a&hm=df50b602cd9769e5d4e9735c7d7865f5d6903cc64bcc2ed9fbf6f1de292fdd88&"
         })
         .setDescription(embedMessages)
-        .setTimestamp()
-    return msg;
+        .setTimestamp();
 }
 
 
