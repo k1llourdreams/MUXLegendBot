@@ -1,14 +1,12 @@
 # MUXLegendBot
 Discord Bot I created for my brothers and I used for announcing events happening in the game MUXLegend.
 
-Uses the libraries discord.js and croner.
+Uses the libraries discord.js (v14.12.1) and croner (v8.0.2).
 
 
+### There are currently 4 commands:
 
-
-The prefix is !
-
-There are currently 4 commands:
+**The prefix is !**
 
 !help -- Sends the usage for commands.
 
