@@ -1,24 +1,24 @@
-const Discord = require('discord.js');
-const {
-    Client,
-    Events,
-    GatewayIntentBits,
-    managerToFetchingStrategyOptions,
-    ActivityType,
-    EmbedBuilder
-} = require('discord.js'); //permissions
+const Discord = require("discord.js");
+const { REST, Routes, Client, Events, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder } = require('discord.js'); //permissions
 const Cron = require("croner");
-const embeds = require('./help.js');
-const info = require("./info.json")
-const secret = require('./secret.json')
+const embeds = require("./help.js");
+const fs = require("fs")
+
+const info = require("./info.json");
+const secret = require("./secret.json");
+
+const clientId = "1228731205382574131";
+const guildId = "864966978975301653";
+
 
 let prefix = "!"
-let answers = ['!help', 'Afking Lost Tower 7', 'failed wings attempt #23034', 'escooby dooby doo']
+let answers = ['!help', 'afking red icarus', 'failed wings attempt #23034', 'escooby dooby doo']
 
 
-const client = new Discord.Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates] // intents needed for bot to do certain things. idk discord is stupid
+const client = new Client({
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
+
 
 
 function schedule(channel) {
@@ -263,12 +263,129 @@ client.on("ready", async () => {
     await schedule(channel)
     console.log(`Logged in as ${client.user.tag}!`);
 
+
     setInterval(async () => {
         let randomAnswers = answers[Math.floor(Math.random() * answers.length)]
         client.user.setActivity({name: randomAnswers, type: 0})
     }, 30 * 1000)
 
+
 });
+
+
+const commands = [
+    {
+        name: 'kill',
+        description: 'Record a monster kill and set a reminder for its respawn',
+        options: [
+            {
+                name: 'monster',
+                type: 3, // string
+                description: 'Name of the monster',
+                required: true,
+                // autocomplete: true, // Enable autocomplete
+                // choices: Object.keys(info).map(monsterName => ({ name: monsterName, value: monsterName })) // Generate choices dynamically from info.json
+            },
+            {
+                name: 'minutes_ago',
+                type: 4, // integer
+                description: 'How many minutes ago it was killed',
+                required: true,
+            },
+        ],
+    },
+    {
+        name: "schedule",
+        description: "Show upcoming bosses for selected hour(s)",
+    }
+];
+
+
+const rest = new REST({ version: '10' }).setToken(secret);
+
+(async () => {
+    try {
+        console.log('Started refreshing application (/) commands.');
+
+        await rest.put(
+            Routes.applicationGuildCommands(clientId, guildId),
+            { body: commands },
+        );
+
+        console.log('Successfully reloaded application (/) commands.');
+    } catch (error) {
+        console.error(error);
+    }
+})();
+
+
+
+client.on('interactionCreate', async interaction => {
+    if (!interaction.isCommand()) return;
+
+    const { commandName, options, member } = interaction;
+
+    if (commandName === 'kill') {
+        const monsterName = options.getString('monster');
+        const minutesAgo = options.getInteger('minutes_ago');
+
+        if (info[monsterName]) {
+            const respawnTime = parseRespawnTime(info[monsterName].Spawn);
+            const respawnInMs = respawnTime - (minutesAgo * 60 * 1000);
+
+            const killTime = new Date(Date.now() - (minutesAgo * 60 * 1000));
+            const respawnTimeDate = new Date(Date.now() + respawnInMs);
+
+            const killTimeUnix = Math.floor(killTime.getTime() / 1000);
+            const respawnTimeUnix = Math.floor(respawnTimeDate.getTime() / 1000);
+
+            setTimeout(() => {
+                interaction.channel.send(`${monsterName} has respawned!`);
+            }, respawnInMs);
+
+            const scheduleEmbed = new EmbedBuilder()
+                .setColor('#6584F6')
+                .setTitle(`${monsterName}`)
+                .setAuthor({
+                    name: `MUXOnline`,
+                    iconURL: "https://cdn.discordapp.com/attachments/1230562870480076901/1230859690435416144/images.png?ex=6634da6a&is=6622656a&hm=df50b602cd9769e5d4e9735c7d7865f5d6903cc64bcc2ed9fbf6f1de292fdd88&"
+                })
+                .addFields(
+                    {
+                        name: "Killed",
+                        value: `<t:${killTimeUnix}:F>`,
+                        inline: false
+                    },
+                    {
+                        name: "Appear:",
+                        value: `<t:${respawnTimeUnix}:F>`,
+                        inline: false
+                    },
+                )
+                .setColor("#005b80")
+                .setFooter({
+                    text: `Entered by ${member.nickname || member.user.username}`,
+                })
+                .setTimestamp();
+            await interaction.reply({ embeds: [scheduleEmbed] });
+
+        } else {
+            await interaction.reply('Monster not found in the database.');
+        }
+    }
+});
+
+function parseRespawnTime(spawnTime) {
+    const timeMultipliers = {
+        'h': 3600000, // hours to milliseconds
+        'm': 60000    // minutes to milliseconds
+    };
+
+    const timeUnit = spawnTime.slice(-1);
+    const timeAmount = parseFloat(spawnTime.slice(0, -1));
+
+    return timeAmount * timeMultipliers[timeUnit];
+}
 
 
 client.login(secret)
