@@ -112,7 +112,7 @@ function getInfo(commandName) {
 
 function monsterEmbed() {
     let embedMessages = ""
-    for (let i of Object.keys(info)) {
+    for (let i of Object.keys(info).slice(0, Object.keys(info).length - 9)) {
         embedMessages += i + "\n"
     }
     return new EmbedBuilder()
@@ -129,4 +129,4 @@ function monsterEmbed() {
 
 
 
-module.exports = { commandEmbed:commandEmbed, returnEmbeds:returnEmbeds, getInfo:getInfo, monsterEmbed:monsterEmbed}
+module.exports = { commandEmbed:commandEmbed, returnEmbeds:returnEmbeds, getInfo:getInfo, monsterEmbed:monsterEmbed }
