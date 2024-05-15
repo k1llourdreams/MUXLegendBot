@@ -173,18 +173,8 @@
     "Spawn": "2h",
     "Drop": "Box of Kundun +1"
   },
-  "Kundun 1 LA": {
-    "Location": "Legends Arena",
-    "Spawn": "2h",
-    "Drop": "Box of Kundun +1"
-  },
   "Kundun 2": {
     "Location": "Kalima 2",
-    "Spawn": "4h",
-    "Drop": "Box of Kundun +2"
-  },
-  "Kundun 2 LA": {
-    "Location": "Legends Arena",
     "Spawn": "4h",
     "Drop": "Box of Kundun +2"
   },
@@ -193,18 +183,8 @@
     "Spawn": "6h",
     "Drop": "Box of Kundun +3"
   },
-  "Kundun 3 LA": {
-    "Location": "Legends Arena",
-    "Spawn": "6h",
-    "Drop": "Box of Kundun +3"
-  },
   "Kundun 4": {
     "Location": "Kalima 4",
-    "Spawn": "8h",
-    "Drop": "Box of Kundun +4"
-  },
-  "Kundun 4 LA": {
-    "Location": "Legends Arena",
     "Spawn": "8h",
     "Drop": "Box of Kundun +4"
   },
@@ -213,18 +193,8 @@
     "Spawn": "10h",
     "Drop": "Box of Kundun +5"
   },
-  "Kundun 5 LA": {
-    "Location": "Legends Arena",
-    "Spawn": "10h",
-    "Drop": "Box of Kundun +5"
-  },
   "Kundun 6": {
     "Location": "Kalima 6",
-    "Spawn": "13h",
-    "Drop": "Green Chaos Box"
-  },
-  "Kundun 6 LA": {
-    "Location": "Legends Arena",
     "Spawn": "13h",
     "Drop": "Green Chaos Box"
   },
@@ -232,6 +202,36 @@
     "Location": "Kalima 7, Dungeon, Land of Trial, VIP Arena",
     "Spawn": "13h",
     "Drop": "Red Chaos Box"
+  },
+  "Kundun 1 LA": {
+    "Location": "Legends Arena",
+    "Spawn": "2h",
+    "Drop": "Box of Kundun +1"
+  },
+  "Kundun 2 LA": {
+    "Location": "Legends Arena",
+    "Spawn": "4h",
+    "Drop": "Box of Kundun +2"
+  },
+  "Kundun 3 LA": {
+    "Location": "Legends Arena",
+    "Spawn": "6h",
+    "Drop": "Box of Kundun +3"
+  },
+  "Kundun 4 LA": {
+    "Location": "Legends Arena",
+    "Spawn": "8h",
+    "Drop": "Box of Kundun +4"
+  },
+  "Kundun 5 LA": {
+    "Location": "Legends Arena",
+    "Spawn": "10h",
+    "Drop": "Box of Kundun +5"
+  },
+  "Kundun 6 LA": {
+    "Location": "Legends Arena",
+    "Spawn": "13h",
+    "Drop": "Green Chaos Box"
   },
   "Kundun 7 Dungeon": {
     "Location": "Dungeon",
