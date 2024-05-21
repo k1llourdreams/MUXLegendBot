@@ -1,0 +1,77 @@
+{
+  "Ferea Reminder - 2 hour(s)": {
+    "killTime": "2024-05-21T04:40:14.154Z",
+    "respawnTime": "2024-05-21T14:40:14.154Z",
+    "isReminder": true
+  },
+  "Ferea Reminder - 3 hour(s)": {
+    "killTime": "2024-05-21T04:40:14.154Z",
+    "respawnTime": "2024-05-21T15:40:14.154Z",
+    "isReminder": true
+  },
+  "Ferea Reminder - 1 hour(s)": {
+    "killTime": "2024-05-21T04:40:14.154Z",
+    "respawnTime": "2024-05-21T13:40:14.154Z",
+    "isReminder": true
+  },
+  "God of Darkness": {
+    "killTime": "2024-05-21T06:37:40.380Z",
+    "respawnTime": "2024-05-21T14:37:40.380Z"
+  },
+  "God of Darkness Reminder": {
+    "killTime": "2024-05-21T06:37:40.380Z",
+    "respawnTime": "2024-05-21T14:32:40.380Z",
+    "isReminder": true
+  },
+  "God of Darkness Reminder - 1 hour(s)": {
+    "killTime": "2024-05-21T06:37:40.380Z",
+    "respawnTime": "2024-05-21T15:37:40.380Z",
+    "isReminder": true
+  },
+  "God of Darkness Reminder - 2 hour(s)": {
+    "killTime": "2024-05-21T06:37:40.380Z",
+    "respawnTime": "2024-05-21T16:37:40.380Z",
+    "isReminder": true
+  },
+  "God of Darkness Reminder - 3 hour(s)": {
+    "killTime": "2024-05-21T06:37:40.380Z",
+    "respawnTime": "2024-05-21T17:37:40.380Z",
+    "isReminder": true
+  },
+  "K7 Dungeon": {
+    "killTime": "2024-05-21T08:03:53.068Z",
+    "respawnTime": "2024-05-21T21:03:53.068Z"
+  },
+  "K7 Dungeon Reminder": {
+    "killTime": "2024-05-21T08:03:53.068Z",
+    "respawnTime": "2024-05-21T20:58:53.068Z",
+    "isReminder": true
+  },
+  "Sylvester": {
+    "killTime": "2024-05-21T10:55:19.500Z",
+    "respawnTime": "2024-05-21T22:55:19.500Z"
+  },
+  "Sylvester Reminder": {
+    "killTime": "2024-05-21T10:55:19.500Z",
+    "respawnTime": "2024-05-21T22:50:19.500Z",
+    "isReminder": true
+  },
+  "Core Magriffy": {
+    "killTime": "2024-05-21T08:37:00.431Z",
+    "respawnTime": "2024-05-22T04:37:00.431Z"
+  },
+  "Core Magriffy Reminder": {
+    "killTime": "2024-05-21T08:37:00.431Z",
+    "respawnTime": "2024-05-22T04:32:00.431Z",
+    "isReminder": true
+  },
+  "Nix": {
+    "killTime": "2024-05-21T12:45:46.219Z",
+    "respawnTime": "2024-05-22T01:45:46.219Z"
+  },
+  "Nix Reminder": {
+    "killTime": "2024-05-21T12:45:46.219Z",
+    "respawnTime": "2024-05-22T01:40:46.219Z",
+    "isReminder": true
+  }
+}
