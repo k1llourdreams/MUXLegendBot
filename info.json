@@ -39,21 +39,16 @@
     "Spawn": "1h",
     "Drop": "Card Deck +Chaos Soul"
   },
-  "Elite Scorched Wizard": {
-    "Location": "Scorched Canyon",
-    "Spawn": "1h",
-    "Drop": "Guardian Enhance Stone",
-    "SpecialDrop": "~5% Elite Guardian Enhance Stone & ~1% Seal of Ghost Horse"
-  },
   "Dark Mammoth": {
     "Location": "Rakleon (4)",
     "Spawn": "1h",
     "Drop": "Socket Item / Chaos Soul"
   },
-  "Debenter All": {
-    "Location": "Acheron: Debenter",
-    "Spawn": "1.5h",
-    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos Soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  "Elite Scorched Wizard": {
+    "Location": "Scorched Canyon",
+    "Spawn": "1h",
+    "Drop": "Guardian Enhance Stone",
+    "SpecialDrop": "~5% Elite Guardian Enhance Stone & ~1% Seal of Ghost Horse"
   },
   "Normus": {
     "Location": "Acheron: Debenter",
@@ -80,6 +75,11 @@
     "Spawn": "1.5h",
     "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
   },
+  "Debenter All": {
+    "Location": "Acheron: Debenter",
+    "Spawn": "1.5h",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos Soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
   "Elite Great Drakan": {
     "Location": "Red Smoke Icarus",
     "Spawn": "3h",
@@ -96,46 +96,20 @@
     "Spawn": "6h",
     "Drop": "Green Chaos Box"
   },
-  "Erohim": {
-    "Location": "Land of Trial, Legends Arena",
-    "Spawn": "13h",
-    "Drop": "Purple Chaos Box"
-  },
-  "Nix": {
-    "Location": "Nixie's Lake",
-    "Spawn": "13h",
-    "Drop": "Protection Ring: Critical Damage Resistance +3%\nProtector Protection Ring: Excellent Damage Resistance +3%\nRing of Block: Stun Chance Resistance +1%\nRing of Ultimatum: Double Damage Resistance +3%"
-  },
   "Lord Sylvester": {
     "Location": "Acheron: Urk Mountain",
     "Spawn": "12h",
     "Drop": "Pentagram Tier 3: Kundun's Madness Blade, Empire Guardians Scroll, Ancient Icarus Scroll\nPentagram Tier 4: Arca's Prophecy, Antonia's Sword, Kundun Seal's Scroll\nPentagram Tier 5: Norrwen's Bloodstring Lyra, Runedil's Goldentune Harp, Lemuria's Orb (5%)\nErrtels +5 - +7"
   },
-  "Core Magriffy": {
-    "Location": "Archeron: Nars",
-    "Spawn": "20h",
-    "Drop": "Pentagram Tier 3: Kundun's Madness Blade, Empire Guardians Scroll, Ancient Icarus Scroll\nPentagram Tier 4: Arca's Prophecy, Antonia's Sword, Kundun Seal's Scroll\nPentagram Tier 5: Norrwen's Bloodstring Lyra, Runedil's Goldentune Harp, Lemuria's Orb (20%)\nErrtels +7 - +8 (Chance of 2 items & Rare chance of 3 items)"
+  "Omega": {
+    "Location": "Acheron: Urk Mountain",
+    "Spawn": "13h",
+    "Drop": "Mastery Blood Angel Set Items"
   },
-  "Selupan": {
-    "Location": "Raklion",
-    "Spawn": "24h",
-    "Drop": "Socket Items Box / Purple Box"
-  },
-  "Nightmare": {
-    "Location": "Kanturu Relics",
-    "Spawn": "24h",
-    "Drop": "Green Chaos Box"
-  },
-  "God of Darkness": {
-    "Location": "Swamp of Darkness",
-    "Spawn": "8-12h",
-    "Drop": "Purple Chaos Box",
-    "SpecialDrop": "Garuda Flame"
-  },
-  "Lord Ferea": {
-    "Location": "Ferea",
-    "Spawn": "8-12h",
-    "Drop": "Rage Earrings"
+  "Nix": {
+    "Location": "Nixie's Lake",
+    "Spawn": "13h",
+    "Drop": "Protection Ring: Critical Damage Resistance +3%\nProtector Protection Ring: Excellent Damage Resistance +3%\nRing of Block: Stun Chance Resistance +1%\nRing of Ultimatum: Double Damage Resistance +3%"
   },
   "RUUD Snakes": {
     "Location": "Vulcanus (6 for Each Type [Tiny, Ordinary, Fat, Huge])",
@@ -167,6 +141,42 @@
     "Spawn": "19:30",
     "Drop": "Purple Chaos Box",
     "SpecialDrop": "MUX Legend Weapon Box (Lightbringer, Staff of Darkness, Storm Breaker, Royal Scepter, Cursed Stick / Cursed Book, Fury Claw, Justicar’s Lance, Crepuscular Mace, Crystal Short Sword, Magic Flintflock, Rebellion Orb, Night's Edge) +Chaos Soul"
+  },
+  "Core Magriffy": {
+    "Location": "Archeron: Nars",
+    "Spawn": "20h",
+    "Drop": "Pentagram Tier 3: Kundun's Madness Blade, Empire Guardians Scroll, Ancient Icarus Scroll\nPentagram Tier 4: Arca's Prophecy, Antonia's Sword, Kundun Seal's Scroll\nPentagram Tier 5: Norrwen's Bloodstring Lyra, Runedil's Goldentune Harp, Lemuria's Orb (20%)\nErrtels +7 - +8 (Chance of 2 items & Rare chance of 3 items)"
+  },
+  "Selupan": {
+    "Location": "Raklion",
+    "Spawn": "24h",
+    "Drop": "Socket Items Box / Purple Box"
+  },
+  "Nightmare": {
+    "Location": "Kanturu Relics",
+    "Spawn": "24h",
+    "Drop": "Green Chaos Box"
+  },
+  "God of Darkness": {
+    "Location": "Swamp of Darkness",
+    "Spawn": "8-12h",
+    "Drop": "Purple Chaos Box",
+    "SpecialDrop": "Garuda Flame"
+  },
+  "Lord Ferea": {
+    "Location": "Ferea",
+    "Spawn": "8-12h",
+    "Drop": "Rage Earrings"
+  },
+  "Erohim LoT": {
+    "Location": "Land of Trial",
+    "Spawn": "13h",
+    "Drop": "Purple Chaos Box"
+  },
+  "Erohim": {
+    "Location": "Legends Arena",
+    "Spawn": "13h",
+    "Drop": "Purple Chaos Box"
   },
   "Kundun 1": {
     "Location": "Kalima 1",
