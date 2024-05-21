@@ -1,24 +1,22 @@
 const Discord = require("discord.js");
-const { REST, Routes, Client, Events, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder } = require('discord.js'); //permissions
+const {Client, Events, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder, Collection} = require('discord.js'); //permissions
 const Cron = require("croner");
 const embeds = require("./help.js");
-const fs = require("fs")
-
+const {parseRespawnTime, readReminders , writeReminders, createReminder, scheduleReminder, handleExpiredReminders} = require("./reminder-functions")
 const info = require("./info.json");
 const secret = require("./secret.json");
 
-const clientId = "1228731205382574131";
 const guildId = "864966978975301653";
-
+const eventAlert = "1241355305724547223";
+const bossAlert = "1241355369239023628";
 
 let prefix = "!"
 let answers = ['!help', 'afking red icarus', 'failed wings attempt #23034', 'escooby dooby doo']
 
 
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates],
 });
-
 
 
 function schedule(channel) {
@@ -122,7 +120,7 @@ function schedule(channel) {
     const arcaWar5 = Cron("40 18 * * 4", {name: "arca war5"}, function () { //  At 6:45PM every Thursday
         channel.send(`The Arca War event is starting in 5 minutes.`)
     });
-    const castleSiege5 = Cron("25 17 * * 7", {name: "castle siege5"}, function () { //  At 5:30PM every Sunday
+    const castleSiege35 = Cron("55 16 * * 7", {name: "castle siege5"}, function () { //  At 4:55PM every Sunday
         channel.send(`Castle Siege is starting in 5 minutes.`)
     });
     const bossBattleTogether5 = Cron("10 12,18,22  * * *", {name: "boss battle together5"}, function () { //  At 12:10PM, 6:10PM, and 10:10PM every day
@@ -133,37 +131,12 @@ function schedule(channel) {
     });
 
 
-    client.on('voiceStateUpdate', (oldState, newState) => { //  I cant be asked to figure it out, too hard, so you get this
-        if (oldState.member.user.id === "544114963346620417" || newState.member.user.id === "544114963346620417") return;
-        client.users.fetch("544114963346620417", false).then((user) => {
-            user.send('heloo');
-        });
-    });
-
-
-    client.on('messageCreate', async message => {
+    client.on('messageCreate', async message => {       //  My Cron related commands because I cant take them out of the function 💀
         if (!message.content.startsWith(prefix) || message.author.bot) return;
-        let channel = client.channels.cache.find(channel => channel.id === '1228766904085119047');
+        let channel = client.channels.cache.find(channel => channel.id === eventAlert);
 
         const args = message.content.slice(prefix.length).trim().split(/ +/)
         const command = args.shift().toLowerCase();
-
-
-        if (command === "help") {
-            try {
-                if (!args[0]) {                                         // if no command is given, send help embed
-                    await message.channel.send(`You didnt enter any arguments.`)
-                    await message.channel.send({embeds: [embeds.commandEmbed(command)]})
-                } else if (args[0] === "commands") {                    //  if the argument is "commands", send every command embed
-                    for (let i = 0; i <= 4; i++)                        // change if more commands are added
-                        await message.channel.send({embeds: [embeds.returnEmbeds()[i]]})
-                } else {                               //if command is given, send command embed
-                    await message.channel.send({embeds: [embeds.commandEmbed(args[0])]})
-                }
-            } catch (error) {
-                return error
-            }
-        }
 
 
         if (command === "next") {
@@ -208,6 +181,7 @@ function schedule(channel) {
 
             let hours = Math.floor(minMsToNext / (1000 * 60 * 60));
             let minutes = Math.floor((minMsToNext % (1000 * 60 * 60)) / (1000 * 60));
+
             if (hours === 0) {
                 await message.channel.send(`The next event is ${tempJob.name.replace(/\b\w/g, l => l.toUpperCase())} in ${minutes} minutes`);
             } else if (minutes === 0) {
@@ -216,21 +190,33 @@ function schedule(channel) {
                 await message.channel.send(`The next event is in ${hours} hours and ${minutes} minutes`);
         }
 
+    })
+}
 
-        if (command === "events") {
-            const events = new EmbedBuilder()
-                .setColor("#6584F6")
-                .setTitle('List of events currently in the database')
-                .setAuthor({
-                    name: `MUXOnline`,
-                    iconURL: "https://cdn.discordapp.com/attachments/1230562870480076901/1230859690435416144/images.png?ex=6634da6a&is=6622656a&hm=df50b602cd9769e5d4e9735c7d7865f5d6903cc64bcc2ed9fbf6f1de292fdd88&"
-                })
-                .setDescription(`Blood Castle\nDevil Square\nChaos Castle\nRed Dragon\nGolden Invasion\nDungeons Undine\nMedusa\nStrange Rabbits\nWhite Rooster\nBloody Orc\nAsteroth\nBoss Battle Together\nCrywolf\nArca War\nCastle Siege`)
-                .setTimestamp()
+client.on('messageCreate', async message => {       //  All text commands.
 
-            message.channel.send({embeds: [events]});
+        if (!message.content.startsWith(prefix) || message.author.bot) return;
+        let channel = client.channels.cache.find(channel => channel.id === eventAlert);
+
+        const args = message.content.slice(prefix.length).trim().split(/ +/)
+        const command = args.shift().toLowerCase();
+
+
+        if (command === "help") {
+            try {
+                if (!args[0]) {                                         // if no command is given, send help embed
+                    await message.channel.send(`You didnt enter any arguments.`)
+                    await message.channel.send({embeds: [embeds.commandEmbed(command)]})
+                } else if (args[0] === "commands") {                    //  if the argument is "commands", send every command embed
+                    for (let i = 0; i <= 4; i++)                        // change if more commands are added
+                        await message.channel.send({embeds: [embeds.returnEmbeds()[i]]})
+                } else {                               //if command is given, send command embed
+                    await message.channel.send({embeds: [embeds.commandEmbed(args[0])]})
+                }
+            } catch (error) {
+                return error
+            }
         }
-
 
         if (command === "info") {
             const commandName = args.join(" ").toLowerCase()
@@ -254,15 +240,123 @@ function schedule(channel) {
             }
         }
 
-    })
+        if (command === "events") {
+            let events = new EmbedBuilder()
+                .setTitle('List of events currently in the database')
+                .setAuthor({
+                    name: `MUXOnline`,
+                    iconURL: "https://cdn.discordapp.com/attachments/1230562870480076901/1230859690435416144/images.png?ex=6634da6a&is=6622656a&hm=df50b602cd9769e5d4e9735c7d7865f5d6903cc64bcc2ed9fbf6f1de292fdd88&"
+                })
+                .setDescription(`Blood Castle\nDevil Square\nChaos Castle\nRed Dragon\nGolden Invasion\nDungeons Undine\nMedusa\nStrange Rabbits\nWhite Rooster\nBloody Orc\nAsteroth\nBoss Battle Together\nCrywolf\nArca War\nCastle Siege`)
+                .setColor("#005b80")
+                .setTimestamp()
+
+            message.channel.send({embeds: [events]});
+        }
+
+        if (command === "kill") {
+            let minutesAgo = 0;
+            let temp = args.join(' ');
+            let theMonster = null;
+
+            let infoLowercase = {};
+            for (let key in info) {
+                infoLowercase[key.toLowerCase()] = info[key];
+            }
+
+            temp = temp.toLowerCase();
+            theMonster = infoLowercase[temp];
+
+
+            if (!args[0]) {                         // if no command is given, send help embed
+                await message.channel.send(`You didnt enter a monster name.`)
+                await message.channel.send({embeds: [embeds.commandEmbed(command)]})
+            }
+
+            if (!isNaN(args[args.length - 1])) {     //  Checks if the last argument is a number.
+                minutesAgo = args[args.length - 1];
+                temp = args.slice(0, args.length - 1).join(' ').toLowerCase();
+                theMonster = infoLowercase[temp];
+            }
+
+            if (theMonster) {
+                let respawnTime = parseRespawnTime(theMonster.Spawn);
+                let respawnInMs = respawnTime - (minutesAgo * 60 * 1000);
+
+                let killTime = new Date(Date.now() - (minutesAgo * 60 * 1000));
+                let respawnTimeDate = new Date(Date.now() + respawnInMs);
+
+                if (isNaN(parseRespawnTime(theMonster.Spawn))) {
+                    await message.channel.send('The respawn time for this monster cannot be parsed. Maybe just dont use !kill on it :)');
+                    return;
+                }
+
+                let killTimeUnix = Math.floor(killTime.getTime() / 1000);
+                let respawnTimeUnix = Math.floor(respawnTimeDate.getTime() / 1000);
+
+                let scheduleEmbed = new EmbedBuilder()
+                    .setTitle(`${temp.replace(/\b\w/g, s => s.toUpperCase())}`)
+                    .setAuthor({
+                        name: `MUXOnline`,
+                        iconURL: "https://cdn.discordapp.com/attachments/1230562870480076901/1230859690435416144/images.png?ex=6634da6a&is=6622656a&hm=df50b602cd9769e5d4e9735c7d7865f5d6903cc64bcc2ed9fbf6f1de292fdd88&"
+                    })
+                    .addFields(
+                        {
+                            name: "Killed",
+                            value: `<t:${killTimeUnix}:F>`,
+                            inline: false
+                        },
+                        {
+                            name: "Appear:",
+                            value: `<t:${respawnTimeUnix}:F>`,
+                            inline: false
+                        },
+                    )
+                    .setColor("#005b80")
+                    .setFooter({
+                        text: `Entered by ${message.member.nickname || message.member.user.globalName}`,
+                    })
+                    .setTimestamp();
+
+                await message.channel.send({embeds: [scheduleEmbed]});
+
+            } else {
+                await message.channel.send('Monster not found in the database.');
+            }
+        }
+
+});
+
+
+client.on('voiceStateUpdate', (oldState, newState) => {     //  Sends me a message when someone joins the voice channel
+    if (oldState.member.user.id === "544114963346620417" || newState.member.user.id === "544114963346620417") return;
+    if (newState.channelId && !oldState.channelId) {
+        client.users.fetch("544114963346620417", false).then((user) => {
+            user.send(`${newState.member.user.username} joined the voice channel`);
+        });
+    }
+});
+
+
+client.commands = new Collection();
+
+const filePath = ['./kill.js', './schedule.js'];
+for (const path of filePath){
+    const command = require(path);
+    client.commands.set(command.data.name, command);
 }
 
-
 client.on("ready", async () => {
-    let channel = client.channels.cache.find(channel => channel.id === '1228766904085119047');
-    await schedule(channel)
     console.log(`Logged in as ${client.user.tag}!`);
 
+    await handleExpiredReminders();
+    await schedule(client.channels.cache.find(channel => channel.id === eventAlert))
+
+
+    let reminders = await readReminders();
+    for (let [temp, reminder] of Object.entries(reminders)) {
+        scheduleReminder(temp, reminder.respawnTime, reminder.isReminder);
+    }
 
     setInterval(async () => {
         let randomAnswers = answers[Math.floor(Math.random() * answers.length)]
@@ -270,122 +364,56 @@ client.on("ready", async () => {
     }, 30 * 1000)
 
 
-});
-
-
-const commands = [
-    {
-        name: 'kill',
-        description: 'Record a monster kill and set a reminder for its respawn',
-        options: [
-            {
-                name: 'monster',
-                type: 3, // string
-                description: 'Name of the monster',
-                required: true,
-                // autocomplete: true, // Enable autocomplete
-                // choices: Object.keys(info).map(monsterName => ({ name: monsterName, value: monsterName })) // Generate choices dynamically from info.json
-            },
-            {
-                name: 'minutes_ago',
-                type: 4, // integer
-                description: 'How many minutes ago it was killed',
-                required: true,
-            },
-        ],
-    },
-    {
-        name: "schedule",
-        description: "Show upcoming bosses for selected hour(s)",
-    }
-];
-
-
-const rest = new REST({ version: '10' }).setToken(secret);
-
-(async () => {
-    try {
-        console.log('Started refreshing application (/) commands.');
-
-        await rest.put(
-            Routes.applicationGuildCommands(clientId, guildId),
-            { body: commands },
-        );
-
-        console.log('Successfully reloaded application (/) commands.');
-    } catch (error) {
-        console.error(error);
-    }
-})();
-
-
+})
 
 client.on('interactionCreate', async interaction => {
-    if (!interaction.isCommand()) return;
 
-    const { commandName, options, member } = interaction;
+    let {commandName, options, member} = interaction;
 
-    if (commandName === 'kill') {
-        const monsterName = options.getString('monster');
-        const minutesAgo = options.getInteger('minutes_ago');
+    if (interaction.isChatInputCommand()) {
+        const command = interaction.client.commands.get(interaction.commandName);
 
-        if (info[monsterName]) {
-            const respawnTime = parseRespawnTime(info[monsterName].Spawn);
-            const respawnInMs = respawnTime - (minutesAgo * 60 * 1000);
+        try {
+            await command.execute(interaction);
 
-            const killTime = new Date(Date.now() - (minutesAgo * 60 * 1000));
-            const respawnTimeDate = new Date(Date.now() + respawnInMs);
+        } catch (error) {
+            // console.error(`Error executing ${interaction.commandName}`);
+            // console.error(error);
+        }
 
-            const killTimeUnix = Math.floor(killTime.getTime() / 1000);
-            const respawnTimeUnix = Math.floor(respawnTimeDate.getTime() / 1000);
+    } else
+        if (interaction.isAutocomplete()) {
+        const command = interaction.client.commands.get(interaction.commandName);
 
-            setTimeout(() => {
-                interaction.channel.send(`${monsterName} has respawned!`);
-            }, respawnInMs);
+        if (!command) {
+            console.error(`No command matching ${interaction.commandName} was found.`);
+            return;
+        }
 
-            const scheduleEmbed = new EmbedBuilder()
-                .setColor('#6584F6')
-                .setTitle(`${monsterName}`)
-                .setAuthor({
-                    name: `MUXOnline`,
-                    iconURL: "https://cdn.discordapp.com/attachments/1230562870480076901/1230859690435416144/images.png?ex=6634da6a&is=6622656a&hm=df50b602cd9769e5d4e9735c7d7865f5d6903cc64bcc2ed9fbf6f1de292fdd88&"
-                })
-                .addFields(
-                    {
-                        name: "Killed",
-                        value: `<t:${killTimeUnix}:F>`,
-                        inline: false
-                    },
-                    {
-                        name: "Appear:",
-                        value: `<t:${respawnTimeUnix}:F>`,
-                        inline: false
-                    },
-                )
-                .setColor("#005b80")
-                .setFooter({
-                    text: `Entered by ${member.nickname || member.user.username}`,
-                })
-                .setTimestamp();
-            await interaction.reply({ embeds: [scheduleEmbed] });
+        try {
+            await command.autocomplete(interaction);
+            await command.execute(interaction);
+        } catch (error) {
 
-        } else {
-            await interaction.reply('Monster not found in the database.');
+            // if (error.code !== 50035) {
+            //     console.error(`Error executing ${interaction.commandName}`);
+            //     console.error(error);
+            // }
         }
     }
 });
 
-function parseRespawnTime(spawnTime) {
-    const timeMultipliers = {
-        'h': 3600000, // hours to milliseconds
-        'm': 60000    // minutes to milliseconds
-    };
-
-    const timeUnit = spawnTime.slice(-1);
-    const timeAmount = parseFloat(spawnTime.slice(0, -1));
-
-    return timeAmount * timeMultipliers[timeUnit];
-}
-
-
 client.login(secret)
+
+process.on("unhandledRejection", async (err) => {
+    console.error("Unhandled Promise Rejection:\n", err);
+});
+process.on("uncaughtException", async (err) => {
+    console.error("Uncaught Promise Exception:\n", err);
+});
+process.on("uncaughtExceptionMonitor", async (err) => {
+    console.error("Uncaught Promise Exception (Monitor):\n", err);
+});
+// process.on("multipleResolves", async (type, promise, reason) => {
+//     console.error("Multiple Resolves:\n", type, promise, reason);
+// });
