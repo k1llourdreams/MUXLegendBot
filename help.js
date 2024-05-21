@@ -27,6 +27,11 @@ const commands= {
         desc: 'Lists information about a special monsters/bosses',
         usage: '\n!info [monster]\n!info list',
         example: '\n!info Gold Rabbit\n!info list'
+    },
+    'kill': {
+        desc: 'Adds a reminder 5 minutes before and on time that a monster will respawn',
+        usage: '\n!kill [monster]\n!kill [monster] [minutes ago]',
+        example: '\n!kill Erohim LA\n!kill Debenter All 5'
     }
 }
 
@@ -46,12 +51,12 @@ function returnEmbeds() {
         let data = Object.values(commandObj)[0]
 
         let msg = new EmbedBuilder()
-            .setColor('#6584F6')
             .setTitle(`**Command:** ${command}`)
             .setAuthor({
                 name: `MUXOnline`,
                 iconURL: "https://cdn.discordapp.com/attachments/1230562870480076901/1230859690435416144/images.png?ex=6634da6a&is=6622656a&hm=df50b602cd9769e5d4e9735c7d7865f5d6903cc64bcc2ed9fbf6f1de292fdd88&"
             })
+            .setColor('#005b80')
             .setTimestamp()
         if (data.example === '') {
             msg.setDescription(`**Description:** ${data.desc}\n**Usage:** ${data.usage}`)
@@ -67,7 +72,7 @@ function returnEmbeds() {
 function commandEmbed(command) {
     if (Object.keys(commands).indexOf(command) === -1) return "You didn't enter a valid command!"
     let embed = new EmbedBuilder()
-        .setColor("#6584F6")
+        .setColor("#005b80")
         .setTitle(`**Command:** ${command}`)
         .setAuthor({
             name: `MUXOnline`,
@@ -92,7 +97,7 @@ function getInfo(commandName) {
     if (!commandInfo) return "Monster not found"
     // Construct embed for the command
     let infoEmbed = new EmbedBuilder()
-        .setColor('#6584F6')
+        .setColor('#005b80')
         .setTitle(commandName)
         .setAuthor({
             name: `MUXOnline`,
@@ -116,7 +121,7 @@ function monsterEmbed() {
         embedMessages += i + "\n"
     }
     return new EmbedBuilder()
-        .setColor('#6584F6')
+        .setColor('#005b80')
         .setTitle(`List of All Special Monsters and Bosses`)
         .setAuthor({
             name: `MUXOnline`,
