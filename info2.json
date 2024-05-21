@@ -1,0 +1,312 @@
+[
+  {
+    "Name": "Genocider Warrior",
+    "Location": "Legends Arena (2)",
+    "Spawn": "5m",
+    "Drop": "Evomon Summoning Scroll +Chaos Soul"
+  },
+  {
+    "Name": "Bloody Witch Queen",
+    "Location": "Aida (Mostly in Aida 2)",
+    "Spawn": "5m",
+    "Drop": "Archangel Weapons for All Classes"
+  },
+  {
+    "Name": "Gold Rabbit",
+    "Location": "Lorencia (15), Noria (15), Devias (20)",
+    "Spawn": "15m",
+    "Drop": "Jewel of Bless/Soul/Chaos.\nLower Chance: Jewel of Life/Creation, +Chaos Soul"
+  },
+  {
+    "Name": "Metal Balrog",
+    "Location": "Dungeon (4)",
+    "Spawn": "20m",
+    "Drop": "Ancient Set Items Grade D +Chaos Soul"
+  },
+  {
+    "Name": "Soldier",
+    "Location": "Dungeon (2), Legends Arena",
+    "Spawn": "30m",
+    "Drop": "Red Chocolate Box / Box of Luck / Blue Chocolate Box +Chaos Soul"
+  },
+  {
+    "Name": "Bali",
+    "Location": "Dungeon (2), Legends Arena",
+    "Spawn": "1h",
+    "Drop": "Red Chocolate Box / Box of Luck / Blue Chocolate Box +Chaos Soul"
+  },
+  {
+    "Name": "Axl Hero",
+    "Location": "Dungeon (2)",
+    "Spawn": "1h",
+    "Drop": "Ancient Set Items Grade C +Chaos Soul"
+  },
+  {
+    "Name": "Fire Flame Ghost",
+    "Location": "Lorencia (3), Noria (3), Devias (3), Legends Arena (3)",
+    "Spawn": "1h",
+    "Drop": "Card Deck +Chaos Soul"
+  },
+  {
+    "Name": "Dark Mammoth",
+    "Location": "Rakleon (4)",
+    "Spawn": "1h",
+    "Drop": "Socket Item / Chaos Soul"
+  },
+  {
+    "Name": "Normus",
+    "Location": "Acheron: Debenter",
+    "Spawn": "1.5h",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos Soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  {
+    "Name": "Muff",
+    "Location": "Acheron: Debenter",
+    "Spawn": "1.5h",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos Soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  {
+    "Name": "Sellihoden",
+    "Location": "Acheron: Debenter",
+    "Spawn": "1.5h",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos Soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  {
+    "Name": "Silla",
+    "Location": "Acheron: Debenter",
+    "Spawn": "1.5h",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  {
+    "Name": "Ukanva",
+    "Location": "Acheron: Debenter",
+    "Spawn": "1.5h",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  {
+    "Name": "Zaikan",
+    "Location": "Tarkan, Lorencia, Loren Deep Event (on start, 100%, after 5m, 75%, after that, 50%)",
+    "Spawn": "6h",
+    "Drop": "Loch's Feather or Crest of Monarch"
+  },
+  {
+    "Name": "Undine",
+    "Location": "Dungeon",
+    "Spawn": "6h",
+    "Drop": "Green Chaos Box"
+  },
+  {
+    "Name": "Selupan",
+    "Location": "Raklion",
+    "Spawn": "24h",
+    "Drop": "Socket Items Box / Purple Box"
+  },
+  {
+    "Name": "Nightmare",
+    "Location": "Kanturu Relics",
+    "Spawn": "24h",
+    "Drop": "Green Chaos Box"
+  },
+  {
+    "Name": "RUUD Snakes",
+    "Location": "Vulcanus (6 for Each Type [Tiny, Ordinary, Fat, Huge])",
+    "Spawn": "30m, 60m, 120m,  240m",
+    "Drop": "100, 200, 400 Or 1000 RUUD"
+  },
+  {
+    "Name": "Elite Phoenix of Darkness",
+    "Location": "Red Smoke Icarus",
+    "Spawn": "00:00, 06:00, 12:00, 18:00 (Can spawn 0-5 bosses at once)",
+    "Drop": "Green/Red/Purple Chaos Box"
+  },
+  {
+    "Name": "Medusa",
+    "Location": "Swamp of Calmness",
+    "Spawn": "17:30",
+    "Drop": "Excellent Rings & Pendants (Chance of 2 items & Rare chance of 3 items)"
+  },
+  {
+    "Name": "Great Rooster",
+    "Location": "Elbeland",
+    "Spawn": "18:30",
+    "Drop": "Excellent Dark Angel Weapon or 1000-15000 RUUD"
+  },
+  {
+    "Name": "Bloody Orc",
+    "Location": "Vulcanus (3) (125,75\n180,110\n155,55)",
+    "Spawn": "18:35",
+    "Drop": "5000 RUUD"
+  },
+  {
+    "Name": "Asteroth",
+    "Location": "Legends Arena",
+    "Spawn": "19:30",
+    "Drop": "Purple Chaos Box",
+    "SpecialDrop": "MUX Legend Weapon Box (Lightbringer, Staff of Darkness, Storm Breaker, Royal Scepter, Cursed Stick / Cursed Book, Fury Claw, Justicar’s Lance, Crepuscular Mace, Crystal Short Sword, Magic Flintflock, Rebellion Orb, Night's Edge) +Chaos Soul"
+  },
+  {
+    "Name": "K1",
+    "Location": "Kalima 1",
+    "Spawn": "2h",
+    "Drop": "Box of Kundun +1"
+  },
+  {
+    "Name": "K2",
+    "Location": "Kalima 2",
+    "Spawn": "4h",
+    "Drop": "Box of Kundun +2"
+  },
+  {
+    "Name": "K3",
+    "Location": "Kalima 3",
+    "Spawn": "6h",
+    "Drop": "Box of Kundun +3"
+  },
+  {
+    "Name": "K4",
+    "Location": "Kalima 4",
+    "Spawn": "8h",
+    "Drop": "Box of Kundun +4"
+  },
+  {
+    "Name": "K5",
+    "Location": "Kalima 5",
+    "Spawn": "10h",
+    "Drop": "Box of Kundun +5"
+  },
+  {
+    "Name": "K6",
+    "Location": "Kalima 6",
+    "Spawn": "13h",
+    "Drop": "Green Chaos Box"
+  },
+  {
+    "Name": "K7",
+    "Location": "Kalima 7, Dungeon, Land of Trial, VIP Arena",
+    "Spawn": "13h",
+    "Drop": "Red Chaos Box"
+  },
+  {
+    "Name": "Debenter All",
+    "Location": "Acheron: Debenter",
+    "Spawn": "1.5h",
+    "Drop": "Element Symbol 1-5, Errtell of Radiance +Chaos Soul\nPentagram Tier 2: Iron Shield of the Magic, Brave Hero Elixir, Merciless Gladiator's Dagger\nSymbols of Fire, Water, Wind, Earth, Darkness"
+  },
+  {
+    "Name": "Elite Scorched Wizard",
+    "Location": "Scorched Canyon",
+    "Spawn": "1h",
+    "Drop": "Guardian Enhance Stone",
+    "SpecialDrop": "~5% Elite Guardian Enhance Stone & ~1% Seal of Ghost Horse"
+  },
+  {
+    "Name": "Elite Great Drakan",
+    "Location": "Red Smoke Icarus",
+    "Spawn": "3h",
+    "Drop": "Guardian Enhance Stone",
+    "SpecialDrop": "~20% Elite Guardian Enhance Stone, Talisman of Luck ~15% & ~1% Seal of Ice Dragon"
+  },
+  {
+    "Name": "God of Darkness",
+    "Location": "Swamp of Darkness",
+    "Spawn": "8-12h",
+    "Drop": "Purple Chaos Box",
+    "SpecialDrop": "Garuda Flame"
+  },
+  {
+    "Name": "Ferea",
+    "Location": "Ferea",
+    "Spawn": "8-12h",
+    "Drop": "Rage Earrings"
+  },
+  {
+    "Name": "Sylvester",
+    "Location": "Acheron: Urk Mountain",
+    "Spawn": "12h",
+    "Drop": "Pentagram Tier 3: Kundun's Madness Blade, Empire Guardians Scroll, Ancient Icarus Scroll\nPentagram Tier 4: Arca's Prophecy, Antonia's Sword, Kundun Seal's Scroll\nPentagram Tier 5: Norrwen's Bloodstring Lyra, Runedil's Goldentune Harp, Lemuria's Orb (5%)\nErrtels +5 - +7"
+  },
+  {
+    "Name": "Omega",
+    "Location": "Acheron: Urk Mountain",
+    "Spawn": "13h",
+    "Drop": "Mastery Blood Angel Set Items"
+  },
+  {
+    "Name": "Nix",
+    "Location": "Nixie's Lake",
+    "Spawn": "13h",
+    "Drop": "Protection Ring: Critical Damage Resistance +3%\nProtector Protection Ring: Excellent Damage Resistance +3%\nRing of Block: Stun Chance Resistance +1%\nRing of Ultimatum: Double Damage Resistance +3%"
+  },
+  {
+    "Name": "Erohim LoT",
+    "Location": "Land of Trial",
+    "Spawn": "13h",
+    "Drop": "Purple Chaos Box"
+  },
+  {
+    "Name": "Erohim",
+    "Location": "Legends Arena",
+    "Spawn": "13h",
+    "Drop": "Purple Chaos Box"
+  },
+  {
+    "Name": "Core Magriffy",
+    "Location": "Archeron: Nars",
+    "Spawn": "20h",
+    "Drop": "Pentagram Tier 3: Kundun's Madness Blade, Empire Guardians Scroll, Ancient Icarus Scroll\nPentagram Tier 4: Arca's Prophecy, Antonia's Sword, Kundun Seal's Scroll\nPentagram Tier 5: Norrwen's Bloodstring Lyra, Runedil's Goldentune Harp, Lemuria's Orb (20%)\nErrtels +7 - +8 (Chance of 2 items & Rare chance of 3 items)"
+  },
+  {
+    "Name": "K1 LA",
+    "Location": "Legends Arena",
+    "Spawn": "2h",
+    "Drop": "Box of Kundun +1"
+  },
+  {
+    "Name": "K2 LA",
+    "Location": "Legends Arena",
+    "Spawn": "4h",
+    "Drop": "Box of Kundun +2"
+  },
+  {
+    "Name": "K3 LA",
+    "Location": "Legends Arena",
+    "Spawn": "6h",
+    "Drop": "Box of Kundun +3"
+  },
+  {
+    "Name": "K4 LA",
+    "Location": "Legends Arena",
+    "Spawn": "8h",
+    "Drop": "Box of Kundun +4"
+  },
+  {
+    "Name": "K5 LA",
+    "Location": "Legends Arena",
+    "Spawn": "10h",
+    "Drop": "Box of Kundun +5"
+  },
+  {
+    "Name": "K6 LA",
+    "Location": "Legends Arena",
+    "Spawn": "13h",
+    "Drop": "Green Chaos Box"
+  },
+  {
+    "Name": "K7 Dungeon",
+    "Location": "Dungeon",
+    "Spawn": "13h",
+    "Drop": "Red Chaos Box"
+  },
+  {
+    "Name": "K7 LoT",
+    "Location": "Land of Trial",
+    "Spawn": "13h",
+    "Drop": "Red Chaos Box"
+  },
+  {
+    "Name": "K7 VIP",
+    "Location": "VIP Arena",
+    "Spawn": "13h",
+    "Drop": "Red Chaos Box"
+  }
+]
