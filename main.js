@@ -18,115 +18,114 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates],
 });
 
-
 function schedule(channel) {
-    const bloodCastle = Cron("30 * * * *", {name: "blood castle"}, function () {      // At 30 minutes past the hour
+    const bloodCastle = Cron("30 * * * *", {name: "blood castle", timezone: "Asia/Nicosia"}, function () {      // At 30 minutes past the hour
         // channel.send(`Blood Castle has begun.`)
     });
-    const devilSquare = Cron("0 0-23/2 * * *", {name: "devil square"}, function () { // Every 2 hours, starting from 12AM
+    const devilSquare = Cron("0 0-23/2 * * *", {name: "devil square", timezone: "Asia/Nicosia"}, function () { // Every 2 hours, starting from 12AM
         // channel.send(`Devil Square has begun.`)
     });
-    const chaosCastle = Cron("0 1-23/2 * * *", {name: "chaos castle"}, function () { // Every 2 hours, starting from 1AM
+    const chaosCastle = Cron("0 1-23/2 * * *", {name: "chaos castle", timezone: "Asia/Nicosia"}, function () { // Every 2 hours, starting from 1AM
         // channel.send(`Chaos Castle has begun.`)
     });
-    const redDragon = Cron("10 1-23/2 * * *", {name: "red dragon"}, function () {   //  Every 2 hours, starting from 1:10AM
+    const redDragon = Cron("10 1-23/2 * * *", {name: "red dragon", timezone: "Asia/Nicosia"}, function () {   //  Every 2 hours, starting from 1:10AM
         channel.send(`Red Dragon has appeared.`)
     });
-    const goldenInvasion = Cron("12 1-23/2 * * *", {name: "golden invasion"}, function () {    // Every 2 hours, starting from 1:12AM
+    const goldenInvasion = Cron("12 1-23/2 * * *", {name: "golden invasion", timezone: "Asia/Nicosia"}, function () {    // Every 2 hours, starting from 1:12AM
         channel.send(`Golden Invasion has begun.`)
     });
-    const dungeonsUndine = Cron("50 0-23/4 * * *", {name: "dungeons undine"}, function () { // Every 4 hours, starting from 12:50AM
+    const dungeonsUndine = Cron("50 0-23/4 * * *", {name: "dungeons undine", timezone: "Asia/Nicosia"}, function () { // Every 4 hours, starting from 12:50AM
         channel.send(`Dungeon's Undine has appeared.`)
     });
-    const medusa = Cron("30 17 * * *", {name: "medusa"}, function () {     // At 5:30PM every day
+    const medusa = Cron("30 17 * * *", {name: "medusa", timezone: "Asia/Nicosia"}, function () {     // At 5:30PM every day
         channel.send(`Medusa has appeared`)
     });
-    const strangeRabbits = Cron("15 18 * * *", {name: "strange rabbits"}, function () { //  At 6:15PM every day
+    const strangeRabbits = Cron("15 18 * * *", {name: "strange rabbits", timezone: "Asia/Nicosia"}, function () { //  At 6:15PM every day
         channel.send(`Strange Rabbits have appeared.`)
     });
-    const whiteRooster = Cron("30 18 * * *", {name: "white rooster"}, function () { //  At 6:30PM every day
+    const whiteRooster = Cron("30 18 * * *", {name: "white rooster", timezone: "Asia/Nicosia"}, function () { //  At 6:30PM every day
         channel.send(`The White Rooster has appeared.`)
     });
-    const bloodyOrc = Cron("35 18 * * *", {name: "bloody orc"}, function () { //  At 6:35PM every day
-        channel.send(`The Bloody Orc has appeared. Most likely locations are\n125,75\n180,110\n155,55`)
+    const bloodyOrc = Cron("35 18 * * *", {name: "bloody orc", timezone: "Asia/Nicosia"}, function () { //  At 6:35PM every day
+        channel.send(`The Bloody Orc has appeared.`)
     });
-    const acheron = Cron("15 19 * * 1-3,5,6", {name: "acheron"}, function () { //  At 7:15PM every day except Thu&Sun
+    const acheron = Cron("15 19 * * 1-3,5,6", {name: "acheron", timezone: "Asia/Nicosia"}, function () { //  At 7:15PM every day except Thu&Sun
         channel.send(`The Protector of Acheron event has begun.`)
     });
-    const asteroth = Cron("30 19 * * *", {name: "asteroth"}, function () { //  At 7:30PM every day
+    const asteroth = Cron("30 19 * * *", {name: "asteroth", timezone: "Asia/Nicosia"}, function () { //  At 7:30PM every day
         channel.send(`Asteroth has appeared.`)
     });
-    const crywolf = Cron("45 18 * * 3", {name: "crywolf"}, function () { //  At 6:45PM every Wednesday
+    const crywolf = Cron("45 18 * * 3", {name: "crywolf", timezone: "Asia/Nicosia"}, function () { //  At 6:45PM every Wednesday
         channel.send(`Crywolf event has begun.`)
     });
-    const arcaWar = Cron("45 18 * * 4", {name: "arca war"}, function () { //  At 6:45PM every Thursday
+    const arcaWar = Cron("45 18 * * 4", {name: "arca war", timezone: "Asia/Nicosia"}, function () { //  At 6:45PM every Thursday
         channel.send(`The Arca War event has begun.`)
     });
-    const castleSiege = Cron("30 17 * * 7", {name: "castle siege"}, function () { //  At 5:30PM every Sunday
+    const castleSiege = Cron("30 17 * * 7", {name: "castle siege", timezone: "Asia/Nicosia"}, function () { //  At 5:30PM every Sunday
         channel.send(`Castle Siege has begun.`)
     });
-    const bossBattleTogether = Cron("15 12,18,22 * * *", {name: "boss battle together"}, function () { //  At 12:15PM, 6:15PM, and 10:15PM every day
+    const bossBattleTogether = Cron("15 12,18,22 * * *", {name: "boss battle together", timezone: "Asia/Nicosia"}, function () { //  At 12:15PM, 6:15PM, and 10:15PM every day
         channel.send(`Boss Battle Together has begun.`)
     });
 
-    const bloodCastle5 = Cron("25 * * * *", {name: "blood castle5"}, function () {      // At 30 minutes past the hour
+    const bloodCastle5 = Cron("25 * * * *", {name: "blood castle5", timezone: "Asia/Nicosia"}, function () {      // At 25 minutes past the hour
         channel.send(`Blood Castle is starting in 5 minutes.`)
     });
-    const devilSquare5 = Cron("55 23,1-21/2 * * *", {name: "devil square5"}, function () { // Every 2 hours, starting from 12AM
+    const devilSquare5 = Cron("55 23,1-21/2 * * *", {name: "devil square5", timezone: "Asia/Nicosia"}, function () { // Every 2 hours, starting from 11:55PM
         channel.send(`Devil Square is starting in 5 minutes.`)
     });
-    const chaosCastle5 = Cron("55 0-23/2 * * *", {name: "chaos castle5"}, function () { // Every 2 hours, starting from 1AM
+    const chaosCastle5 = Cron("55 0-23/2 * * *", {name: "chaos castle5", timezone: "Asia/Nicosia"}, function () { // Every 2 hours, starting from 12:55AM
         channel.send(`Chaos Castle is starting in 5 minutes.`)
     });
-    const redDragon5 = Cron("5 1-23/2 * * *", {name: "red dragon5"}, function () {   //  Every 2 hours, starting from 1:10AM
+    const redDragon5 = Cron("5 1-23/2 * * *", {name: "red dragon5", timezone: "Asia/Nicosia"}, function () {   //  Every 2 hours, starting from 1:05AM
         channel.send(`Red Dragon is spawning in 5 minutes.`)
     });
-    const goldenInvasion5 = Cron("7 1-23/2 * * *", {name: "golden invasion5"}, function () {    // Every 2 hours, starting from 1:12AM
+    const goldenInvasion5 = Cron("7 1-23/2 * * *", {name: "golden invasion5", timezone: "Asia/Nicosia"}, function () {    // Every 2 hours, starting from 1:07AM
         channel.send(`Golden Invasion is starting in 5 minutes.`)
     });
-    const dungeonsUndine15 = Cron("35 0-23/4 * * *", {name: "dungeons undine15"}, function () { // Every 4 hours, starting from 12:50AM
+    const dungeonsUndine15 = Cron("35 0-23/4 * * *", {name: "dungeons undine15", timezone: "Asia/Nicosia"}, function () { // Every 4 hours, starting from 12:35AM
         channel.send(`Dungeon's Undine is spawning in 15 minutes.`)
     });
-    const dungeonsUndine5 = Cron("45 0-23/4 * * *", {name: "dungeons undine5"}, function () { // Every 4 hours, starting from 12:50AM
+    const dungeonsUndine5 = Cron("45 0-23/4 * * *", {name: "dungeons undine5", timezone: "Asia/Nicosia"}, function () { // Every 4 hours, starting from 12:45AM
         channel.send(`Dungeon's Undine is spawning in 5 minutes.`)
     });
-    const medusa10 = Cron("20 17 * * *", {name: "medusa10"}, function () {     // At 5:30PM every day
+    const medusa10 = Cron("20 17 * * *", {name: "medusa10", timezone: "Asia/Nicosia"}, function () {     // At 5:20PM every day
         channel.send(`Medusa is spawning in 10 minutes`)
     });
-    const medusa5 = Cron("25 17 * * *", {name: "medusa5"}, function () {     // At 5:30PM every day
+    const medusa5 = Cron("25 17 * * *", {name: "medusa5", timezone: "Asia/Nicosia"}, function () {     // At 5:25PM every day
         channel.send(`Medusa is spawning in 5 minutes`)
     });
-    const strangeRabbits10 = Cron("5 18 * * *", {name: "strange rabbits10"}, function () { //  At 6:15PM every day
+    const strangeRabbits10 = Cron("5 18 * * *", {name: "strange rabbits10", timezone: "Asia/Nicosia"}, function () { //  At 6:05PM every day
         channel.send(`Strange Rabbits are spawning in 10 minutes.`)
     });
-    const strangeRabbits5 = Cron("10 18 * * *", {name: "strange rabbits5"}, function () { //  At 6:15PM every day
+    const strangeRabbits5 = Cron("10 18 * * *", {name: "strange rabbits5", timezone: "Asia/Nicosia"}, function () { //  At 6:10PM every day
         channel.send(`Strange Rabbits are spawning in 5 minutes.`)
     });
-    const whiteRooster5 = Cron("25 18 * * *", {name: "white rooster5"}, function () { //  At 6:30PM every day
+    const whiteRooster5 = Cron("25 18 * * *", {name: "white rooster5", timezone: "Asia/Nicosia"}, function () { //  At 6:25PM every day
         channel.send(`The White Rooster is spawning in 5 minutes.`)
     });
-    const bloodyOrc5 = Cron("30 18 * * *", {name: "bloody orc5"}, function () { //  At 6:30PM every day
+    const bloodyOrc5 = Cron("30 18 * * *", {name: "bloody orc5", timezone: "Asia/Nicosia"}, function () { //  At 6:30PM every day
         channel.send(`The Bloody Orc is spawning in 5 minutes. Most likely locations are\n125,75\n180,110\n155,55`)
     });
-    const acheron5 = Cron("10 19 * * 1-3,5,6", {name: "acheron5"}, function () { //  At 7:10PM every day except Thu&Sun
+    const acheron5 = Cron("10 19 * * 1-3,5,6", {name: "acheron5", timezone: "Asia/Nicosia"}, function () { //  At 7:10PM every day except Thu&Sun
         channel.send(`The Protector of Acheron event is starting in 5 minutes.`)
     });
-    const asteroth5 = Cron("25 19 * * *", {name: "asteroth5"}, function () { //  At 7:25PM every day
+    const asteroth5 = Cron("25 19 * * *", {name: "asteroth5", timezone: "Asia/Nicosia"}, function () { //  At 7:25PM every day
         channel.send(`Asteroth is spawning in 5 minutes.`)
     });
-    const crywolf5 = Cron("40 18 * * 3", {name: "crywolf5"}, function () { //  At 6:45PM every Wednesday
+    const crywolf5 = Cron("40 18 * * 3", {name: "crywolf5", timezone: "Asia/Nicosia"}, function () { //  At 6:40PM every Wednesday
         channel.send(`Crywolf event is starting in 5 minutes.`)
     });
-    const arcaWar5 = Cron("40 18 * * 4", {name: "arca war5"}, function () { //  At 6:45PM every Thursday
+    const arcaWar5 = Cron("40 18 * * 4", {name: "arca war5", timezone: "Asia/Nicosia"}, function () { //  At 6:40PM every Thursday
         channel.send(`The Arca War event is starting in 5 minutes.`)
     });
-    const castleSiege35 = Cron("55 16 * * 7", {name: "castle siege5"}, function () { //  At 4:55PM every Sunday
+    const castleSiege35 = Cron("55 16 * * 7", {name: "castle siege35", timezone: "Asia/Nicosia"}, function () { //  At 4:55PM every Sunday
         channel.send(`Castle Siege is starting in 5 minutes.`)
     });
-    const bossBattleTogether5 = Cron("10 12,18,22  * * *", {name: "boss battle together5"}, function () { //  At 12:10PM, 6:10PM, and 10:10PM every day
+    const bossBattleTogether5 = Cron("10 12,18,22 * * *", {name: "boss battle together5", timezone: "Asia/Nicosia"}, function () { //  At 12:10PM, 6:10PM, and 10:10PM every day
         channel.send(`Boss Battle Together is starting in 5 minutes.`)
     });
-    const bossBattleTogether10 = Cron("5 12,18,22  * * *", {name: "boss battle together10"}, function () { //  At 12:05PM, 6:05PM, and 10:05PM every day
+    const bossBattleTogether10 = Cron("5 12,18,22 * * *", {name: "boss battle together10", timezone: "Asia/Nicosia"}, function () { //  At 12:05PM, 6:05PM, and 10:05PM every day
         channel.send(`Boss Battle Together is starting in 10 minutes.`)
     });
 
@@ -362,7 +361,6 @@ client.on("ready", async () => {
         let randomAnswers = answers[Math.floor(Math.random() * answers.length)]
         client.user.setActivity({name: randomAnswers, type: 0})
     }, 30 * 1000)
-
 
 })
 
