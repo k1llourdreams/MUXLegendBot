@@ -30,6 +30,12 @@ module.exports = {
                 return;
             }
 
+            reminderEntries.sort((a, b) => {    //  sort reminders by time
+                let aRespawnTime = new Date(a[1].respawnTime).getTime();
+                let bRespawnTime = new Date(b[1].respawnTime).getTime();
+                return aRespawnTime - bRespawnTime;
+            });
+
             let reminderEmbed = new EmbedBuilder()
                 .setTitle(`Scheduled Reminders:`)
                 .setAuthor({
@@ -43,7 +49,6 @@ module.exports = {
                 .setTimestamp();
 
             if (options.getInteger('hours') === null) {
-
                 reminderEntries.forEach(([monsterName, reminder]) => {
                     if (!reminder.isReminder) {
                         let respawnTimestamp = Math.floor(new Date(reminder.respawnTime).getTime() / 1000);
@@ -53,12 +58,14 @@ module.exports = {
                         });
                     }
                 });
+
                 await interaction.reply({embeds: [reminderEmbed]});
 
-            } else
+            } else {
+                let hoursLimit = Math.floor(Date.now() / 1000) + (3600 * options.getInteger('hours'));
                 reminderEntries.forEach(([monsterName, reminder]) => {
                     let respawnTimestamp = Math.floor(new Date(reminder.respawnTime).getTime() / 1000);
-                    if ( !reminder.isReminder && (respawnTimestamp <= (Math.floor(Date.now() / 1000) + (3600 * options.getInteger('hours')))) ) {
+                    if (!reminder.isReminder && respawnTimestamp <= hoursLimit) {
                         reminderEmbed.addFields({
                             name: monsterName,
                             value: `<t:${respawnTimestamp}:R> on <t:${respawnTimestamp}:d> <t:${respawnTimestamp}:t>`
@@ -66,8 +73,9 @@ module.exports = {
                     }
                 });
 
-            await interaction.reply({embeds: [reminderEmbed]});
+                await interaction.reply({embeds: [reminderEmbed]});
 
+            }
         } catch (error) {
             await interaction.reply("An error occurred while retrieving reminders.");
         }
