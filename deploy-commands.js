@@ -1,7 +1,7 @@
 const { REST, Routes } = require('discord.js');
 const secret = require("./secret.json")
 
-const filePath = ['./kill.js', './schedule.js'];
+const filePath = ['./kill.js', './schedule.js', './add.js', './remove.js', './who.js'];
 
 const commands = []
 

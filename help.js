@@ -32,6 +32,31 @@ const commands= {
         desc: 'Adds a reminder 5 minutes before and on time that a monster will respawn',
         usage: '\n!kill [monster]\n!kill [monster] [minutes ago]',
         example: '\n!kill Erohim LA\n!kill Debenter All 5'
+    },
+    'addmain': {
+        desc: 'Adds your main account to the database',
+        usage: '\n/add main [main account name]',
+        example: '\n/add main Finnix'
+    },
+    'addalt': {
+        desc: 'Adds an alt to your main account',
+        usage: '\n/add alt [main account name] [alt name]',
+        example: '\n/add alt Finnix Razor'
+    },
+    'removemain': {
+        desc: 'Removes your main account and all its associated alts from the database',
+        usage: '\n/remove main [main account name]',
+        example: '\n/remove main Finnix'
+    },
+    'removealt': {
+        desc: 'Removes an alt from your main account',
+        usage: '\n/remove alt [main account name] [alt name]',
+        example: '\n/remove alt Finnix Razor'
+    },
+    'who': {
+        desc: 'Lists the main and all alts of the account name provided',
+        usage: '\n/who [username]',
+        example: '\n/who Finnix'
     }
 }
 

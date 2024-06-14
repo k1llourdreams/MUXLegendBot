@@ -339,7 +339,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {     //  Sends me a messa
 
 client.commands = new Collection();
 
-const filePath = ['./kill.js', './schedule.js'];
+const filePath = ['./kill.js', './schedule.js', './add.js', './remove.js', './who.js'];
 for (const path of filePath){
     const command = require(path);
     client.commands.set(command.data.name, command);
