@@ -38,13 +38,21 @@ async function writeReminders(reminders) {
 
 async function createReminder(monsterName, killTime, respawnTime) {
 
+    // clearTimeout(timeout)
+
+    // for (let [name, reminder] of Object.entries(reminders)) {
+    //     if (name.startsWith(monsterName)) {
+    //         clearTimeout(reminder.timeout);
+    //         delete reminders[name];
+    //     }
+    // }
+
     // Convert respawnTime to a Date object (doesn't work without this??)
     if (!(respawnTime instanceof Date)) {
         respawnTime = new Date(respawnTime);
     }
 
     let reminders = await readReminders();
-
     reminders[monsterName] = {killTime, respawnTime};
 
     // Calculate 5 minutes before the respawn time
@@ -61,7 +69,6 @@ async function createReminder(monsterName, killTime, respawnTime) {
             reminders[`${monsterName} Reminder + ${i} hour(s)`] = {killTime, respawnTime: reminderTime, isReminder: true};
         }
     }
-
 
     await writeReminders(reminders);
     scheduleReminder(monsterName, respawnTime);
