@@ -1,5 +1,9 @@
+const Discord = require("discord.js");
 const {Client, Events, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder, Collection} = require('discord.js'); //permissions
+const secret = require("./secret.json");
 const {accounts} = require("./connect.js")
+const guildId = "864966978975301653";
+const channelId = "1230562870480076901";
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates],
@@ -39,7 +43,7 @@ module.exports = {
         const subcommand = interaction.options.getSubcommand()
 
         try {
-        let mainExists = await accounts.findOne({where: {main: main}});
+            let mainExists = await accounts.findOne({where: {main: main}});
 
             switch (subcommand) {
                 case "main":
@@ -50,7 +54,7 @@ module.exports = {
 
                     //  Check if main exists as an alt account (and what main it exists in)
                     let findAll = await accounts.findAll()
-                    let altMain = findAll.map(account => account.dataValues).find(account => Object.keys(account).some(key => key.startsWith('alt') && account[key] === main))
+                    let altMain = findAll.map(account => account.dataValues).find(account => Object.keys(account).some(key => key.startsWith('alt') && account[key].toLowerCase() === main.toLowerCase()))
                     if (altMain) {
                         return interaction.reply(`\`${main}\` is already listed as an alt account under main account \`${altMain.main}\`.`);
                     }
@@ -87,10 +91,10 @@ module.exports = {
                     const formattedAccounts = nameCheckList.map(account => account.dataValues);
 
                     //  Check if alt is already a main account
-                    if (formattedAccounts.find(account => account.main === alt)) return interaction.reply(`\`${alt}\` already exist as a main account.`);
+                    if (formattedAccounts.find(account => account.main.toLowerCase() === alt)) return interaction.reply(`\`${alt}\` already exist as a main account.`);
 
                     // Check if alt name already exists as an alt in another main account
-                    let altAccount = formattedAccounts.find(account => Object.keys(account).some(key => key.startsWith('alt') && account[key] === alt));
+                    let altAccount = formattedAccounts.find(account => Object.keys(account).some(key => key.startsWith('alt') && account[key].toLowerCase() === alt.toLowerCase()));
                     let findMain = altAccount ? altAccount.main : undefined;
 
                     if (findMain === main) {
